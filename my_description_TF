@@ -1,0 +1,4 @@
+【MVC】
+Model→laravelの機能。
+View→Webページでユーザーが閲覧・操作する箇所(app->resources->viewsにある)
+Controller→モデルとビューの橋渡し的な存在となる(app->Http->Controllersにある)

@@ -21,12 +21,15 @@ Auth::routes();
 
 
 //ログアウト中のページ
+// ・ログインページへ移行
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
+// ・ユーザー登録ページへ移行
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
 
+// ・ユーザー登録完了
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
@@ -39,3 +42,9 @@ Route::get('/search', 'UsersController@index');
 
 Route::get('/follow-list', 'PostsController@index');
 Route::get('/follower-list', 'PostsController@index');
+
+// 0724ここから追記部分→hello world!と表示される。
+Route::get('/hello', function () {
+  echo 'hello world!';
+});
+// URLのパスにhelloと入力した際、hello world!を表示する。
