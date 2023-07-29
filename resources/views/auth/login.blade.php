@@ -1,9 +1,11 @@
 @extends('layouts.logout')
+{{-- logout.blade.phpの内容を継承する --}}
 
 @section('content')
+{{-- contentに代入する値を設定する。 --}}
+
 <!-- 適切なURLを入力してください -->
-{{-- 0726ログインまたは新規登録ページ --}}
-{!! Form::open(['url' => '/login']) !!}
+{!! Form::open(['url' => '/login','method'=> 'post']) !!}
 {{-- 0727入力、ログイン用URL --}}
 
 <p>AtlasSNSへようこそ</p>

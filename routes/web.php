@@ -19,11 +19,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 
-
 //ログアウト中のページ
 // ・ログインページへ移行
 Route::get('/login', 'Auth\LoginController@login');
+// ログイン処理のルート（get送信）
 Route::post('/login', 'Auth\LoginController@login');
+// ログイン処理する際にpostで送信する。
+// postの場合、LoginControllerのloginに関する処理が行われる。
 
 // ・ユーザー登録ページへ移行
 Route::get('/register', 'Auth\RegisterController@register');

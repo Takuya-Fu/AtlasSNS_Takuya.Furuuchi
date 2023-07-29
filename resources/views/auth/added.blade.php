@@ -1,4 +1,5 @@
 @extends('layouts.logout')
+{{-- logout.blade.phpの内容を引用してくる --}}
 
 @section('content')
 
