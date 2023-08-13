@@ -22,7 +22,6 @@ Auth::routes();
 //ログアウト中のページ
 // ・ログインページへ移行
 Route::get('/login', 'Auth\LoginController@login');
-// ログイン処理のルート（get送信）
 Route::post('/login', 'Auth\LoginController@login');
 // ログイン処理する際にpostで送信する。
 // postの場合、LoginControllerのloginに関する処理が行われる。
@@ -45,8 +44,6 @@ Route::get('/search', 'UsersController@index');
 Route::get('/follow-list', 'PostsController@index');
 Route::get('/follower-list', 'PostsController@index');
 
-// 0724ここから追記部分→hello world!と表示される。
-Route::get('/hello', function () {
-  echo 'hello world!';
-});
-// URLのパスにhelloと入力した際、hello world!を表示する。
+// 【追加】logout用のルート
+Route::get('/logout', 'PostsController@logout');
+Route::post('/logout', 'PostsController@logout');

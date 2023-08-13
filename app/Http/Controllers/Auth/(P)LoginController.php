@@ -35,14 +35,11 @@ class LoginController extends Controller
      * @return void
      */
     public function __construct()
-    // コンストラクタとは？→
     {
         $this->middleware('guest')->except('logout');
-        // guest状態の時、
     }
 
     public function login(Request $request)
-    // ログイン時に
     {
         if ($request->isMethod('post')) {
             // ここにバリデーションを配置する

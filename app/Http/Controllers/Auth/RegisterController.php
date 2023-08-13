@@ -37,27 +37,35 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        // guestと判断された場合？
     }
-
-    public function register(Request $request){
-        if($request->isMethod('post')){
-
+    public function register(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            // 送られて来たデータ（変数request）が（isMethodに）指定した文字列（post）とHTTP動詞が一致したら
             $username = $request->input('username');
             $mail = $request->input('mail');
             $password = $request->input('password');
-
+            // それぞれの変数に送られて来た上記3つの値を受け取り
             User::create([
                 'username' => $username,
+                // 変数usernameに変換する
                 'mail' => $mail,
+                // 変数mailに変換する
                 'password' => bcrypt($password),
+                // bcrypt（ハッシュアルゴリズムによる暗号化した）変数usernameに変換する
             ]);
-
             return redirect('added');
+            // ユーザー登録完了（addedルート→コントローラーadded処理）
         }
         return view('auth.register');
+        // （条件分岐で一致しない場合）register初期画面に戻る
     }
 
-    public function added(){
+    // ユーザー登録が完了した場合（登録完了時）
+    public function added()
+    {
         return view('auth.added');
+        // ユーザー登録完了画面を返す（表示する）
     }
 }

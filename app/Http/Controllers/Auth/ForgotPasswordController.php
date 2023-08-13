@@ -28,5 +28,7 @@ class ForgotPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        // guest状態の時（恐らくこの続きを書くのであろうか？）
+        // middlewareとは何か説明できるようにする。
     }
 }
