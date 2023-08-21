@@ -33,6 +33,7 @@ Route::post('/register', 'Auth\RegisterController@register');
 // ・ユーザー登録完了
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
+// Auth\でAuthフォルダ直下のファイルにあるコントローラーを選択できる。
 
 //ログイン中のページ
 Route::get('/top', 'PostsController@index');
