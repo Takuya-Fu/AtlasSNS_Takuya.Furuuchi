@@ -22,6 +22,8 @@
 <body>
   <header>
     <h1><img src="images/atlas.png"></h1>
+    {{-- 以下追加　ログアウト中の画面 --}}
+    <h2>ログアウト中の画面</h2>
     <p>Social Network Service</p>
   </header>
   <div id="container">

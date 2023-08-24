@@ -30,7 +30,9 @@
                 <ul>
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
+                    {{-- <li><a href="/logout">ログアウト</a></li> --}}
+                    <li><a href="{{route('/logout')}}">ログアウト</a></li>
+
                 </ul>
             </div>
         </div>
