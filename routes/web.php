@@ -15,6 +15,8 @@ Route::get('/', function () {
   return view('welcome');
 });
 Route::get('/home', 'HomeController@index')->name('home');
+// 名前付きルート
+//
 
 Auth::routes();
 
@@ -46,5 +48,5 @@ Route::get('/follow-list', 'PostsController@index');
 Route::get('/follower-list', 'PostsController@index');
 
 // 【追加】logout用のルート
-Route::get('/logout', 'Logoutcontroller@logout');
-Route::post('/logout', 'Logoutcontroller@logout');
+// Route::get('/logout', 'Logoutcontroller@logout');
+// Route::post('/logout', 'Logoutcontroller@logout');

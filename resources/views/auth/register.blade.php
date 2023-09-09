@@ -1,3 +1,4 @@
+{{-- 新規ユーザー登録画面 --}}
 @extends('layouts.logout')
 
 @section('content')

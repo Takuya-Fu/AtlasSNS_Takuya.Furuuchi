@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class LoginController extends Controller
 {
@@ -28,6 +29,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+    // 参考：https://qiita.com/tiwu_dev/items/2a95baecb8c23eef3c67
 
     /**
      * Create a new controller instance.
@@ -38,7 +40,7 @@ class LoginController extends Controller
     // コンストラクタとは？→
     {
         $this->middleware('guest')->except('logout');
-        // guest状態の時、
+        // ゲスト（未ログイン状態）ならログアウトを行う
     }
 
     public function login(Request $request)

@@ -1,3 +1,4 @@
+{{-- Laravelとトップページ画面 --}}
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
