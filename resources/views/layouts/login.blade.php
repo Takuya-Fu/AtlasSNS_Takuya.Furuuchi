@@ -22,15 +22,15 @@
 <body>
     <header>
         <div id = "head">
-        <h1><img src="../storage/images/atlas.png"></h1>
+            <h1><a href="/top"><img class="bgc" src="{{asset('images/atlas.png')}}" alt=""></a></h1>
             <div id="">
                 <div id="">
-                    <p>〇〇さん<img src="../storage/images/arrow.png"></p>
-                <div>
+                    <p>〇〇さん</p>
+                </div>
                 <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
+                    <li><a href="/top">HOME</a></li>
+                    <li><a href="/profile">プロフィール編集</a></li>
+                    <li><a href="/logout">ログアウト    </a></li>
                 </ul>
             </div>
         </div>
@@ -38,7 +38,7 @@
     <div id="row">
         <div id="container">
             @yield('content')
-        </div >
+        </div>
         <div id="side-bar">
             <div id="confirm">
                 <p>〇〇さんの</p>
