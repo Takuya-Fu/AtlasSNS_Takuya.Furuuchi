@@ -21,17 +21,23 @@
 </head>
 <body>
     <header>
-        <div id = "head">
-            <h1><a href="/top"><img class="bgc" src="{{asset('images/atlas.png')}}" alt=""></a></h1>
-            <div id="">
-                <div id="">
+        <div id = "head" class= "header_wrapper">
+            <h1><a href="/top"><img class="header_logo" src="{{asset('images/atlas.png')}}" alt=""></a></h1>
+            <div id="head_inner" class="header_inner">
+                <div id="login_name">
                     <p>〇〇さん</p>
                 </div>
-                <ul>
-                    <li><a href="/top">HOME</a></li>
-                    <li><a href="/profile">プロフィール編集</a></li>
-                    <li><a href="/logout">ログアウト    </a></li>
-                </ul>
+                <div class="ac-item">
+                    <div class="ac__head">
+                        <div class="ac__body">
+                            <ul>
+                                <li><a href="/top">HOME</a></li>
+                                <li><a href="/profile">プロフィール編集</a></li>
+                                <li><a href="/logout">ログアウト</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>

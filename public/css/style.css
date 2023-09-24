@@ -26,8 +26,23 @@ header {
 
 /* 以下コーディング時のCSSを設定する */
 /* ロゴ部分→　背景を黒色にして中央寄せにする */
-#head {
+.header_wrapper {
     display: flex;
+    /* ↓display-flexと併用で上下中央表示 */
+    align-items: center;
+    /* ↓アイコンが中央寄せになる */
+    /* justify-content: center; */
+}
+
+.header_inner {
+    display: inline-block;
+    /* margin: 0 0 0 auto; */
+}
+
+/* ヘッダーロゴの大きさ */
+.header_logo {
+    max-width: 50%;
+    padding: 10%;
 }
 
 /* 全体を中央寄せ */
@@ -47,9 +62,7 @@ header {
 .ac__head {
     position: relative;
     text-align: left;
-    padding: 20px 30px 20px 20px;
     border-radius: 8px 8px 0 0;
-    background: lightblue;
     color: black;
     cursor: pointer;
     width: 100%;
@@ -67,12 +80,12 @@ header {
 /* アコーディオンメニューを表示する */
 .ac__head:after {
     content: "";
-    border-top: 1px solid black;
-    border-left: 1px solid black;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
     display: inline-block;
     width: 10px;
     height: 10px;
-    transform: rotate(-135deg) translateY(0px);
+    transform: rotate(-135deg) translateY(45px);
     position: absolute;
     right: 20px;
     top: 50px;
