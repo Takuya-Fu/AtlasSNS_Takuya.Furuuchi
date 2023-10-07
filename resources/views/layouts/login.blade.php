@@ -27,6 +27,7 @@
                 <div id="login_name">
                     <p>〇〇さん</p>
                 </div>
+                {{-- アコーディオンメニュー部分 --}}
                 <div class="ac-item">
                     <div class="ac__head">
                         <div class="ac__body">
@@ -38,6 +39,7 @@
                         </div>
                     </div>
                 </div>
+                 {{-- //アコーディオンメニュー部分 --}}
             </div>
             <img src="{{ asset('images/icon1.png') }}" alt="icon1">
         </div>

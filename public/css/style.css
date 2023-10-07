@@ -55,7 +55,7 @@ header {
 
 /* 通常時（閉じている時） */
 .ac__item {
-    display: inline-block;
+    display: none;
 }
 
 .ac__head {
@@ -100,4 +100,22 @@ header {
     opacity: 0;
 }
 
-/* アコーディオンメニューをクリックした時の表示内容 */
+/* クリック時の表示内容（開いている時） */
+/* 全体の背景色 */
+.ac__head {
+    background-color: #fff;
+    background-color: yellow;
+    display: inline-block;
+}
+
+/* 枠線部分 */
+.ac__body {
+    border: 1px #186AC9 solid;
+}
+
+/* 文字を中央寄せ */
+.ac__body ul li {
+    text-align: center;
+}
+
+/* ホバー時の色（文字は白色で各リンクは青色、メニューごとに色を反転させる） */
