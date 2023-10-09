@@ -24,8 +24,10 @@
         <div id = "head" class= "header_wrapper">
             <h1><a href="/top"><img class="header_logo" src="{{asset('images/atlas.png')}}" alt=""></a></h1>
             <div id="head_inner" class="header_inner">
-                <div id="login_name">
-                    <p>〇〇さん</p>
+                <div class="header_right">
+                        <div id="login_name" class="login_name">
+                            <p>〇〇さん</p>
+                        </div>
                 </div>
                 {{-- アコーディオンメニュー部分 --}}
                 <div class="ac-item">
@@ -39,9 +41,12 @@
                         </div>
                     </div>
                 </div>
-                 {{-- //アコーディオンメニュー部分 --}}
+                                 {{-- //アコーディオンメニュー部分 --}}
+            <div class="icon_wrapper">
+                <img class="header icon" src="{{ asset('images/icon1.png') }}" alt="icon1">
             </div>
-            <img src="{{ asset('images/icon1.png') }}" alt="icon1">
+
+            </div>
         </div>
     </header>
     <div id="row">

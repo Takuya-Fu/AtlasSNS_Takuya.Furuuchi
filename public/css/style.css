@@ -34,8 +34,15 @@ header {
     /* justify-content: center; */
 }
 
+/* ロゴとその他の外余白を自動で空ける */
+.header_wrapper h1 {
+    margin: 0 auto 0 0;
+}
+
 .header_inner {
-    display: inline-block;
+    align-items: center;
+    display: flex;
+    width: 20%;
     /* margin: 0 0 0 auto; */
 }
 
@@ -45,18 +52,28 @@ header {
     padding: 10%;
 }
 
+.icon_wrapper {
+    max-width: 100%;
+    padding-left: 30%;
+}
+
+.main_container {
+    border-bottom: 5px solid #D3D3D3;
+}
+
+
 /* アコーディオンメニュー */
 /* 参考URL:https: //zero-plus.io/media/javascript-faq/#HTML%E3%81%A8CSS%E3%81%A7%E8%A1%A8%E7%A4%BA%E6%99%82%E3%81%AE%E3%82%A2%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%83%B3%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%92%E4%BD%9C%E3%82%8B */
-/* .ac__block {
+.ac__block {
     display: flex;
     flex-direction: column;
     max-width: 200px;
-} */
+}
 
 /* 通常時（閉じている時） */
-.ac__item {
+/* .ac__item {
     display: none;
-}
+} */
 
 .ac__head {
     position: relative;
@@ -68,6 +85,7 @@ header {
 }
 
 .ac__body {
+    display: none;
     position: relative;
     border-radius: 0 0 8px 8px;
     background: #fff;
@@ -76,6 +94,7 @@ header {
     padding: 20px;
 }
 
+/* アコーディオンメニュー矢印部分 */
 .ac__head:after {
     content: "";
     border-top: 2px solid white;
@@ -85,8 +104,7 @@ header {
     height: 10px;
     transform: rotate(-135deg) translateY(45px);
     position: absolute;
-    right: 20px;
-    top: 50px;
+    top: 20px;
 }
 
 .ac__body {
@@ -100,22 +118,44 @@ header {
     opacity: 0;
 }
 
+/* ユーザー名表示 */
+.login_name p {
+    color: #FFF;
+    font-size: 1.3rem;
+    /* 20.8px */
+}
+
+/* mainセクション（投稿部分） */
+.main_container .post {
+    height: 200px;
+}
+
+.section_post .post {
+    border: none;
+}
+
+/* 投稿送信ボタン */
+.section_post .send_button {
+    width: 4%;
+    border-radius: 3.5px;
+}
+
 /* クリック時の表示内容（開いている時） */
 /* 全体の背景色 */
-.ac__head {
+/* .ac__head {
     background-color: #fff;
     background-color: yellow;
     display: inline-block;
-}
+} */
 
 /* 枠線部分 */
-.ac__body {
+/* .ac__body {
     border: 1px #186AC9 solid;
-}
+} */
 
 /* 文字を中央寄せ */
-.ac__body ul li {
+/* .ac__body ul li {
     text-align: center;
-}
+} */
 
 /* ホバー時の色（文字は白色で各リンクは青色、メニューごとに色を反転させる） */
