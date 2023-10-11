@@ -32,20 +32,17 @@
                 {{-- アコーディオンメニュー部分 --}}
                 <div class="ac-item">
                     <div class="ac__head">
-                        <div class="ac__body">
-                            <ul>
-                                <li><a href="/top">HOME</a></li>
-                                <li><a href="/profile">プロフィール編集</a></li>
-                                <li><a href="/logout">ログアウト</a></li>
-                            </ul>
-                        </div>
+                        <ul class="ac__body">
+                            <li><a href="/top">HOME</a></li>
+                            <li><a href="/profile">プロフィール編集</a></li>
+                            <li><a href="/logout">ログアウト</a></li>
+                        </ul>
                     </div>
                 </div>
-                                 {{-- //アコーディオンメニュー部分 --}}
-            <div class="icon_wrapper">
-                <img class="header icon" src="{{ asset('images/icon1.png') }}" alt="icon1">
-            </div>
-
+                {{-- //アコーディオンメニュー部分 --}}
+                <div class="icon_wrapper">
+                    <img class="header icon" src="{{ asset('images/icon1.png') }}" alt="icon1">
+                </div>
             </div>
         </div>
     </header>
@@ -54,8 +51,14 @@
             @yield('content')
         </div>
         {{-- 右側のフォロー人数を表示する --}}
-        <div id="side-bar">
+        <div id="side-bar" class="side-bar">
             <div id="confirm">
+                {{-- テスト→ACメニュー開いた時用で追加 --}}
+            {{-- <ul class="ac__body">
+                <li><a href="/top">HOME</a></li>
+                <li><a href="/profile">プロフィール編集</a></li>
+                <li><a href="/logout">ログアウト</a></li>
+            </ul> --}}
                 <p>〇〇さんの</p>
                 <div>
                 <p>フォロー数</p>

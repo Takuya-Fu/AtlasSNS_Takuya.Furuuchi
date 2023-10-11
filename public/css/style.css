@@ -61,20 +61,8 @@ header {
     border-bottom: 5px solid #D3D3D3;
 }
 
-
 /* アコーディオンメニュー */
-/* 参考URL:https: //zero-plus.io/media/javascript-faq/#HTML%E3%81%A8CSS%E3%81%A7%E8%A1%A8%E7%A4%BA%E6%99%82%E3%81%AE%E3%82%A2%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%83%B3%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%92%E4%BD%9C%E3%82%8B */
-.ac__block {
-    display: flex;
-    flex-direction: column;
-    max-width: 200px;
-}
-
 /* 通常時（閉じている時） */
-/* .ac__item {
-    display: none;
-} */
-
 .ac__head {
     position: relative;
     text-align: left;
@@ -82,16 +70,6 @@ header {
     color: black;
     cursor: pointer;
     width: 100%;
-}
-
-.ac__body {
-    display: none;
-    position: relative;
-    border-radius: 0 0 8px 8px;
-    background: #fff;
-    color: black;
-    border: 1px solid lightblue;
-    padding: 20px;
 }
 
 /* アコーディオンメニュー矢印部分 */
@@ -107,15 +85,39 @@ header {
     top: 20px;
 }
 
-.ac__body {
-    position: relative;
-    border-radius: 0 0 8px 8px;
+
+#side-bar #confirm .ac__body {
     background: #FFF;
+    border: 1px solid lightblue;
+    /* border: transparent; */
+    border-radius: 0 0 8px 8px;
     color: black;
-    border: transparent;
-    padding: 0 20px;
     line-height: 0;
     opacity: 0;
+    padding: 0 20px;
+    position: relative;
+    display: block;
+    background-color: red;
+}
+
+/* 続きはここから */
+.ac__body {
+    background: #FFF;
+    border: 1px solid lightblue;
+    /* border: transparent; */
+    border-radius: 0 0 8px 8px;
+    color: black;
+    line-height: 0;
+    opacity: 0;
+    padding: 0 20px;
+    position: relative;
+    display: block;
+    background-color: red;
+}
+
+/* 開いたときの動作→side-barの所にACメニュー内容が表示されるようにする */
+.ac__head .ac__body ul.active {
+    display: block;
 }
 
 /* ユーザー名表示 */
@@ -139,23 +141,3 @@ header {
     width: 4%;
     border-radius: 3.5px;
 }
-
-/* クリック時の表示内容（開いている時） */
-/* 全体の背景色 */
-/* .ac__head {
-    background-color: #fff;
-    background-color: yellow;
-    display: inline-block;
-} */
-
-/* 枠線部分 */
-/* .ac__body {
-    border: 1px #186AC9 solid;
-} */
-
-/* 文字を中央寄せ */
-/* .ac__body ul li {
-    text-align: center;
-} */
-
-/* ホバー時の色（文字は白色で各リンクは青色、メニューごとに色を反転させる） */
