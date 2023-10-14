@@ -30,14 +30,13 @@
                         </div>
                 </div>
                 {{-- アコーディオンメニュー部分→head_innerで100%だと同じ広さになるかも --}}
-                <nav class="ac-item">
-                    <ul class="ac__body">
-                    {{-- <ul class="ac__body active"> --}}
-                        <li class="body_inner"><a href="/top">HOME</a></li>
-                        <li class="body_inner"><a href="/profile">プロフィール編集</a></li>
-                        <li class="body_inner"><a href="/logout">ログアウト</a></li>
-                    </ul>
-                </nav>
+                <div class="ac-item">
+                        <ul class="ac__body">
+                            <li class="body_inner"><a href="/top">HOME</a></li>
+                            <li class="body_inner"><a href="/profile">プロフィール編集</a></li>
+                            <li class="body_inner"><a href="/logout">ログアウト</a></li>
+                        </ul>
+                </div>
                 {{-- //アコーディオンメニュー部分 --}}
                 <div class="icon_wrapper">
                     <img class="header icon" src="{{ asset('images/icon1.png') }}" alt="icon1">

@@ -43,8 +43,6 @@ header {
     align-items: center;
     display: flex;
     width: 20%;
-    /* justify-content: center; */
-    /* ↑コンテンツが中央寄せになる */
     /* margin: 0 0 0 auto; */
 }
 
@@ -64,9 +62,8 @@ header {
 }
 
 /* アコーディオンメニュー */
-/* 続きはここから */
 /* 通常時（閉じている時） */
-.ac__body {
+.ac__head {
     position: relative;
     text-align: left;
     border-radius: 8px 8px 0 0;
@@ -75,16 +72,12 @@ header {
     width: 100%;
 }
 
-.ac__body .body_inner {
-    display: none;
-    /* ↑編集時は非表示にする */
-}
-
 /* アコーディオンメニュー矢印部分 */
-.ac__body:after {
+.ac__head:after {
     content: "";
     border-top: 2px solid white;
     border-left: 2px solid white;
+    display: inline-block;
     width: 10px;
     height: 10px;
     transform: rotate(-135deg) translateY(45px);
@@ -92,23 +85,30 @@ header {
     top: 20px;
 }
 
-/* アコーディオンメニュー開いたときの内容（親要素） */
-.ac__body.active {
-    /* ac__bodyの中のactiveクラスを指定する事 */
-    display: inline-flexbox;
-    height: 300px;
-    width: 450px;
-    background-color: #fff;
+/* 続きはここから */
+.ac__body {
+    background: #FFF;
+    border: 1px solid lightblue;
+    border: transparent;
+    border-radius: 0 0 8px 8px;
+    color: black;
+    line-height: 0;
+    padding: 0 20px;
+    position: relative;
+    display: block;
+    background-color: red;
 }
 
 /* アコーディオンメニュー表示時の表記 */
-.ac__body .body_inner a {
+.ac__body .body_inner a{
     color: #333;
+    width: 10%;
+    background-color: #fff;
     z-index: 100;
 }
 
 /* 開いたときの動作→side-barの所にACメニュー内容が表示されるようにする */
-.ac__body .ac__body ul.active {
+.ac__head .ac__body ul.active {
     display: block;
 }
 
@@ -117,7 +117,6 @@ header {
     color: #FFF;
     font-size: 1.3rem;
     /* 20.8px */
-    width: 100px;
 }
 
 /* mainセクション（投稿部分） */
