@@ -95,7 +95,7 @@ header {
 /* アコーディオンメニュー開いたときの内容（親要素） */
 .ac__body.active {
     /* ac__bodyの中のactiveクラスを指定する事 */
-    display: inline-flexbox;
+    display: inline-block;
     height: 300px;
     width: 450px;
     background-color: #fff;

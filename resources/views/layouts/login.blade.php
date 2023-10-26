@@ -52,12 +52,6 @@
         {{-- 右側のフォロー人数を表示する --}}
         <div id="side-bar" class="side-bar">
             <div id="confirm">
-                {{-- テスト→ACメニュー開いた時用で追加 --}}
-            {{-- <ul class="ac__body">
-                <li><a href="/top">HOME</a></li>
-                <li><a href="/profile">プロフィール編集</a></li>
-                <li><a href="/logout">ログアウト</a></li>
-            </ul> --}}
                 <p>〇〇さんの</p>
                 <div>
                 <p>フォロー数</p>
