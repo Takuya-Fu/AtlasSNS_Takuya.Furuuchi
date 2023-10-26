@@ -70,13 +70,19 @@ header {
     position: relative;
     text-align: left;
     border-radius: 8px 8px 0 0;
-    color: black;
     cursor: pointer;
     width: 100%;
+    display: inline-block;
+    height: 300px;
+    width: 450px;
+    background-color: #fff;
+
 }
 
+/* アコーディオンメニュー非表示 */
 .ac__body .body_inner {
-    display: none;
+    display: block;
+    color: red;
     /* ↑編集時は非表示にする */
 }
 
@@ -93,13 +99,6 @@ header {
 }
 
 /* アコーディオンメニュー開いたときの内容（親要素） */
-.ac__body.active {
-    /* ac__bodyの中のactiveクラスを指定する事 */
-    display: inline-block;
-    height: 300px;
-    width: 450px;
-    background-color: #fff;
-}
 
 /* アコーディオンメニュー表示時の表記 */
 .ac__body .body_inner a {
