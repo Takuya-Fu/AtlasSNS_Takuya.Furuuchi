@@ -43,9 +43,6 @@ header {
     align-items: center;
     display: flex;
     width: 20%;
-    /* justify-content: center; */
-    /* ↑コンテンツが中央寄せになる */
-    /* margin: 0 0 0 auto; */
 }
 
 /* ヘッダーロゴの大きさ */
@@ -67,27 +64,29 @@ header {
 /* 続きはここから */
 /* 通常時（閉じている時） */
 .ac__body {
-    position: relative;
     text-align: left;
-    border-radius: 8px 8px 0 0;
     cursor: pointer;
-    width: 100%;
-    display: inline-block;
-    height: 300px;
-    width: 450px;
-    background-color: #fff;
+    width: 300px;
+    background-color: yellow;
+    top: 83px;
+    right: 99px;
+    position: relative;
+}
 
+/* メニュー項目部分 */
+.ac__body .body_inner{
+    text-align: center;
+    /* 以下、1番目と3番目要素に線をつける */
 }
 
 /* アコーディオンメニュー非表示 */
 .ac__body .body_inner {
     display: block;
-    color: red;
     /* ↑編集時は非表示にする */
 }
 
 /* アコーディオンメニュー矢印部分 */
-.ac__body:after {
+.ac__button:after {
     content: "";
     border-top: 2px solid white;
     border-left: 2px solid white;
@@ -95,7 +94,8 @@ header {
     height: 10px;
     transform: rotate(-135deg) translateY(45px);
     position: absolute;
-    top: 20px;
+    top: 80px;
+    cursor: pointer;
 }
 
 /* アコーディオンメニュー開いたときの内容（親要素） */
