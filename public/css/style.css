@@ -7,6 +7,7 @@ body {}
 /* header */
 header {
     background: #186AC9;
+    z-index: 1000;
 }
 
 /* main content */
@@ -32,6 +33,7 @@ header {
     align-items: center;
     /* ↓アイコンが中央寄せになる */
     /* justify-content: center; */
+
 }
 
 /* ロゴとその他の外余白を自動で空ける */
@@ -66,24 +68,40 @@ header {
 .ac__body {
     text-align: left;
     cursor: pointer;
-    width: 300px;
+    width: 287px;
     background-color: yellow;
-    top: 83px;
-    right: 99px;
-    position: relative;
+    top: 118px;
+    right: 0px;
+    z-index: 10;
+    position: absolute;
 }
 
 /* メニュー項目部分 */
+/* アコーディオンメニュー表示時 */
+/* 全体部分 */
 .ac__body .body_inner{
     text-align: center;
     /* 以下、1番目と3番目要素に線をつける */
+    display: block;
+    padding: 40px 0;
+}
+/* 枠線 */
+.body_inner:nth-child(1),.body_inner:nth-child(3){
+    border: 1px solid blue;
+}
+.body_inner:nth-child(2),.body_inner:nth-child(3){
+    border-left: 1px solid blue;
+    border-right: 1px solid blue;
+}
+/* ホバー時→文字は白で背景色は青 */
+.body_inner:hover,.body_inner a:hover{
+    background-color: #fff;
 }
 
-/* アコーディオンメニュー非表示 */
-.ac__body .body_inner {
-    display: block;
-    /* ↑編集時は非表示にする */
+.body_inner:hover{
+    color: blue;
 }
+
 
 /* アコーディオンメニュー矢印部分 */
 .ac__button:after {
