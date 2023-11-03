@@ -17,8 +17,23 @@
 // ac__button:after部分をクリックすると
 // ac__body部分を「非表示」されている状態にする
 
-$('.ac__button').on('click',function){
+// クローズ
+$('.ac__button').on('click',function(){
   let openAc =$(this).next(".ac__body");
 $(openAc).slideToggle();
 
+if($(this).hasClass('close')){
+  $(this).removeClass('close');
+}else{
+  $(this).addClass('close');
 }
+});
+
+// オープン
+$(window).on('load',function(){
+$('.ac__buttoon .ac__body').addClass("open"){
+$("open").each(function(){
+  // ここから再開する
+})
+}
+})
