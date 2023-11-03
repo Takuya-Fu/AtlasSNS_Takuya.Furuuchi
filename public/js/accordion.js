@@ -1,8 +1,24 @@
-const parentMenu = document.querySelectorAll(".ac__body > li > a");
-// 親メニューのlistタグとaタグをまとめて取得
-for (let i = 0; i < parentMenu.length; i++) {
-  parentMenu[i].addEventListener("click", function (e) {
-    e.preventDefault();
-    this.nextElementSibling.classList.toggle("active");
-  })
+// 【テスト用】
+// alert('Hello');
+
+// アコーディオンメニュー作成↓
+// https://coco-factory.jp/ugokuweb/move01/9-2-1/
+// 【動作したい内容を日本語で台本化】
+// アコーディオンメニューの矢印をクリックしたときに
+// メニュー内容（3項目）を表示する
+
+// 【非表示→表示】
+// ac__body部分は「非表示」のため、表示したい。
+// ac__button:after部分をクリックしたときに
+// ac__bodyとbody_inner部分を「表示」されている状態にする
+
+// 【表示→非表示】
+// ac__bodyとbody_inner部分が「表示」されているときに
+// ac__button:after部分をクリックすると
+// ac__body部分を「非表示」されている状態にする
+
+$('.ac__button').on('click',function){
+  let openAc =$(this).next(".ac__body");
+$(openAc).slideToggle();
+
 }

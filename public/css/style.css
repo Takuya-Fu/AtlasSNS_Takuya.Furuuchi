@@ -68,8 +68,8 @@ header {
 .ac__body {
     text-align: left;
     cursor: pointer;
-    width: 287px;
-    background-color: yellow;
+    width: 20%;
+    background-color: #fff;
     top: 118px;
     right: 0px;
     z-index: 10;
@@ -93,13 +93,19 @@ header {
     border-left: 1px solid blue;
     border-right: 1px solid blue;
 }
-/* ホバー時→文字は白で背景色は青 */
+/* ホバー時→文字は白で背景色は青、0.3秒後に背景色が変わる */
 .body_inner:hover,.body_inner a:hover{
-    background-color: #fff;
+    background-color: blue;
+    transition: .3s;
 }
-
-.body_inner:hover{
-    color: blue;
+/* liタグをホバーしたらaタグ部分の色を変化させる */
+.ac__body .body_inner:hover a{
+    color: #fff;
+}
+/* マウスが離れたときに1秒掛けて元の色に戻す */
+.body_inner{
+    background-color: #fff;
+    transition: .8s;
 }
 
 
