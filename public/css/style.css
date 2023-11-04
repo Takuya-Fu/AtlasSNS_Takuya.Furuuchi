@@ -65,7 +65,13 @@ header {
 /* アコーディオンメニュー */
 /* 続きはここから */
 /* 通常時（閉じている時） */
-.ac__body {
+/* hideがついている→最初の状態で非表示 */
+.ac__body.hide{
+    display: none;
+}
+
+/* hideがついていない→表示状態になる */
+.ac__body{
     text-align: left;
     cursor: pointer;
     width: 20%;
@@ -74,7 +80,7 @@ header {
     right: 0px;
     z-index: 10;
     position: absolute;
-    display: none;
+    display: block;
 }
 
 /* メニュー項目部分 */
@@ -131,11 +137,6 @@ header {
 .ac__body .body_inner a {
     color: #333;
     z-index: 100;
-}
-
-/* 開いたときの動作→side-barの所にACメニュー内容が表示されるようにする */
-.ac__body .ac__body ul.active {
-    display: block;
 }
 
 /* ユーザー名表示 */

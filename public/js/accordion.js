@@ -43,18 +43,10 @@
 // $('.ac__body').hide();
 
 
-// 簡易バージョン（https://www.sejuku.net/blog/39296）
 // アコーディオンメニューを開く
 $(function(){
-  $('.ac__button').on('click',()=>{
-    $('.ac__body').show('');
+  $('.ac__button').click(function(){
+    $('.ac__button ul').toggleClass('hide');
   });
 });
-
-// アコーディオンメニューを閉じる
-// $(function(){
-//   $('.ac__button').on('click',()=>{
-//     $('.ac__body').hide('');
-//   });
-// });
-
+// ↑toggleClassを使うことで、classが無いときは「付与」してあるときは「除去」する
