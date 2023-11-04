@@ -1,5 +1,5 @@
 // 【テスト用】
-// alert('Hello');
+// console.log('Hello');
 
 // アコーディオンメニュー作成↓
 // https://coco-factory.jp/ugokuweb/move01/9-2-1/
@@ -17,23 +17,44 @@
 // ac__button:after部分をクリックすると
 // ac__body部分を「非表示」されている状態にする
 
-// クローズ
-$('.ac__button').on('click',function(){
-  let openAc =$(this).next(".ac__body");
-$(openAc).slideToggle();
+// オープン
+// $(window).on('load',function(){
+// $('.ac__button').addClass("open");
+// $("open").each(function(index,element){
+//   let Title = $(element).children('.ac__body');
+//   $(Title).addClass('close');
+//   let Box = $(element).children('.ac__body');
+//   $(Box).slideDown(300);
+//   });
+// });
 
-if($(this).hasClass('close')){
-  $(this).removeClass('close');
-}else{
-  $(this).addClass('close');
-}
+// クローズ
+// $('.ac__button').on('click',function(){
+//   let openAc =$(this).next(".ac__body");
+// $(openAc).slideToggle();
+
+// if($(this).hasClass('close')){
+//   $(this).removeClass('close');
+// }else{
+//   $(this).addClass('close');
+// }
+// });
+
+// $('.ac__body').hide();
+
+
+// 簡易バージョン（https://www.sejuku.net/blog/39296）
+// アコーディオンメニューを開く
+$(function(){
+  $('.ac__button').on('click',()=>{
+    $('.ac__body').show('');
+  });
 });
 
-// オープン
-$(window).on('load',function(){
-$('.ac__buttoon .ac__body').addClass("open"){
-$("open").each(function(){
-  // ここから再開する
-})
-}
-})
+// アコーディオンメニューを閉じる
+// $(function(){
+//   $('.ac__button').on('click',()=>{
+//     $('.ac__body').hide('');
+//   });
+// });
+
