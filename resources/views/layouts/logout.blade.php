@@ -21,8 +21,7 @@
 </head>
 <body>
   <header>
-    <h1><img src="images/atlas.png"></h1>
-
+    <h1><img src="{{ asset('images/atlas.png') }}" alt=""></h1>
     {{-- 以下追加　ログアウト中の画面 --}}
     <p>Social Network Service</p>
   </header>

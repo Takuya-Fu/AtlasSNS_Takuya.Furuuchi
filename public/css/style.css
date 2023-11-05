@@ -83,6 +83,7 @@ header {
     display: block;
 }
 
+
 /* メニュー項目部分 */
 /* アコーディオンメニュー表示時 */
 /* 全体部分 */
@@ -91,7 +92,19 @@ header {
     /* 以下、1番目と3番目要素に線をつける */
     display: block;
     padding: 40px 0;
+    background-color: #fff;
+    transition: .8s;
 }
+/*  */
+/* アコーディオンメニュー表示時の表記 */
+.ac__body .body_inner a {
+    color: #333;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
 /* 枠線 */
 .body_inner:nth-child(1),.body_inner:nth-child(3){
     border: 1px solid blue;
@@ -108,11 +121,6 @@ header {
 /* liタグをホバーしたらaタグ部分の色を変化させる */
 .ac__body .body_inner:hover a{
     color: #fff;
-}
-/* マウスが離れたときに1秒掛けて元の色に戻す */
-.body_inner{
-    background-color: #fff;
-    transition: .8s;
 }
 
 
@@ -133,11 +141,6 @@ header {
 }
 /* アコーディオンメニュー開いたときの内容（親要素） */
 
-/* アコーディオンメニュー表示時の表記 */
-.ac__body .body_inner a {
-    color: #333;
-    z-index: 100;
-}
 
 /* ユーザー名表示 */
 .login_name p {
