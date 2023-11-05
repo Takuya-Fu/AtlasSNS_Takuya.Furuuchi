@@ -37,9 +37,9 @@
                 <nav class="ac-item">
                     <div class="ac__button">
                         <ul class="ac__body hide">
-                            <li class="body_inner"><a href="/top">HOME</a></li>
-                            <li class="body_inner"><a href="/profile">プロフィール編集</a></li>
-                            <li class="body_inner"><a href="/logout">ログアウト</a></li>
+                            <li class="body_inner"><a class="link" href="/top">HOME</a></li>
+                            <li class="body_inner"><a class="link" href="/profile">プロフィール編集</a></li>
+                            <li class="body_inner"><a class="link" href="/logout">ログアウト</a></li>
                         </ul>
                     </div>
                 </nav>
