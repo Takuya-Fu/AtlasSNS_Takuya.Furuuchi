@@ -45,10 +45,10 @@ Route::post('/top', 'PostsController@index');
 Route::get('/profile', 'UsersController@profile');
 Route::post('/profile', 'UsersController@profile');
 
-Route::get('/search', 'UsersController@index');
+Route::get('/search', 'UsersController@search');
 
-Route::get('/follow-list', 'PostsController@index');
-Route::get('/follower-list', 'PostsController@index');
+Route::get('/follow-list', 'PostsController@followList');
+Route::get('/follower-list', 'PostsController@followerList');
 
 // 【追加】logout用のルート
 Route::get('/logout', 'Logoutcontroller@logout');

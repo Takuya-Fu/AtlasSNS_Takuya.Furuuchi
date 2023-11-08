@@ -63,16 +63,16 @@
                     <p>〇〇名</p>
                     {{-- ↑ここはデータベースから引用する --}}
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
+                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                     <p>フォロワー数</p>
                     <p>〇〇名</p>
                     {{-- ↑ここはデータベースから引用する --}}
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
                 {{-- ↑ここはbtn部分をbootstrapで引用して装飾する --}}
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/search">ユーザー検索</a></p>
             {{-- ↑ここはbtn部分をbootstrapで引用して装飾する --}}
         </div>
     </div>
