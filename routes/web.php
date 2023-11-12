@@ -56,6 +56,6 @@ Route::post('/logout', 'Logoutcontroller@logout');
 
 // ログアウト機能（実際用）
 // https://www.youtube.com/watch?v=UcBHf0L9KVU
-Route::post('logout',
-[AuthController::class,'logout'])
-->name('logout');
+// Route::post('logout',
+// [AuthController::class,'logout'])
+// ->name('logout');
