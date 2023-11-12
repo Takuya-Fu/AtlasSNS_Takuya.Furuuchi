@@ -50,6 +50,12 @@ Route::get('/search', 'UsersController@search');
 Route::get('/follow-list', 'PostsController@followList');
 Route::get('/follower-list', 'PostsController@followerList');
 
-// 【追加】logout用のルート
+// （仮）ログアウト機能→あくまでテスト用
 Route::get('/logout', 'Logoutcontroller@logout');
 Route::post('/logout', 'Logoutcontroller@logout');
+
+// ログアウト機能（実際用）
+// https://www.youtube.com/watch?v=UcBHf0L9KVU
+Route::post('logout',
+[AuthController::class,'logout'])
+->name('logout');

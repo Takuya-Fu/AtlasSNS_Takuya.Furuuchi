@@ -13,8 +13,7 @@ class Logoutcontroller extends Controller
     public function logout(){
         // ここは仮作成中→ログアウト方法が分かったら書き換えること
         // Auth::logout();
-        // return redirect('layouts.logout');
         return view('layouts.logout');
-        // echo 'Hello World';
+        // return redirect('/logout');
     }
 }
