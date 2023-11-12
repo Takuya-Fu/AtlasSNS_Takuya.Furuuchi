@@ -51,11 +51,10 @@ class LoginController extends Controller
         if ($request->isMethod('post')) {
             // もしもpost送信だった場合、
             $data = $request->only('mail', 'password');
-            // ログインが成功したら、トップページへ
-            //↓ログイン条件は公開時には消すこと
             if (Auth::attempt($data)) {
                 return redirect('/top');
             }
+            // ログインが成功したら、トップページへ
         }
         return view("auth.login");
     }
