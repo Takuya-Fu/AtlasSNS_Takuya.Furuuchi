@@ -63,9 +63,6 @@ header {
 }
 
 /* アコーディオンメニュー */
-/* 続きはここから */
-/* 通常時（閉じている時） */
-/* hideがついている→最初の状態で非表示 */
 .ac__body.hide{
     display: none;
 }
@@ -82,7 +79,6 @@ header {
     position: absolute;
     display: block;
 }
-
 
 /* メニュー項目部分 */
 /* アコーディオンメニュー表示時 */
