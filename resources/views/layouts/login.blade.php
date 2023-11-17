@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+{{-- 画面に表示されない部分 --}}
 <head>
     <meta charset="utf-8" />
     <!--IEブラウザ対策-->
@@ -22,11 +22,11 @@
     <!--OGPタグ/twitterカード-->
 </head>
 
+{{-- 画面に表示される部分 --}}
 <body>
     <header>
         <div id = "head" class= "header_wrapper">
-            <h1><a href="/top"><img class="header_logo" src="{{ asset('images/atlas.png') }}" alt=""></a>
-            </h1>
+            <h1><a href="/top"><img class="header_logo" src="{{ asset('images/atlas.png') }}" alt=""></a></h1>
             <div id="head_inner" class="header_inner">
                 <div class="header_right">
                     <div id="login_name" class="login_name">
@@ -54,6 +54,7 @@
     <div id="row">
         <div id="container">
             @yield('content')
+            {{-- index.blade.phpの内容を継承する --}}
         </div>
         {{-- 右側のフォロー人数を表示する --}}
         <div id="side-bar" class="side-bar">
