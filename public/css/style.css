@@ -160,3 +160,17 @@ header {
     width: 4%;
     border-radius: 3.5px;
 }
+
+/* ユーザー検索部分 */
+/* 全体調整 */
+.search-wrapper{
+    display: flex;
+    padding-bottom: 40px;
+}
+/* 入力フォームの位置調整 */
+.user_search{
+    height: 50px;
+    width: 300px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
