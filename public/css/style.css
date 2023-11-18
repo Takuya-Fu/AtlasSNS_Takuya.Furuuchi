@@ -58,6 +58,7 @@ header {
     padding-left: 30%;
 }
 
+/* ☆ヘッダー下の枠線→前ページに表記したい */
 .main_container {
     border-bottom: 5px solid #D3D3D3;
 }

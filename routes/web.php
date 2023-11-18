@@ -45,6 +45,7 @@ Route::post('/top', 'PostsController@index');
 Route::get('/profile', 'UsersController@profile');
 Route::post('/profile', 'UsersController@profile');
 
+// ユーザー検索ページ
 Route::get('/search', 'UsersController@search');
 
 Route::get('/follow-list', 'PostsController@followList');
