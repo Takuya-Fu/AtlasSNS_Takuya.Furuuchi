@@ -165,7 +165,8 @@ header {
 /* 全体調整 */
 .search-wrapper{
     display: flex;
-    padding-bottom: 40px;
+    align-items: center;
+    padding-bottom: 50px;
 }
 /* 入力フォームの位置調整 */
 .user_search{
@@ -173,4 +174,10 @@ header {
     width: 300px;
     margin-top: 20px;
     margin-left: 30px;
+}
+.search-wrapper .user_search_icon{
+    margin-left: 20px;
+    width: 4%;
+    height: 4%;
+    margin-top: 20px;
 }
