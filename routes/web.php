@@ -11,6 +11,12 @@
 |
 */
 
+// 1119進めるコツ
+// 完成見本を見ながらコードを入力し、都度確認（進捗を見て頭で覚える）
+// 楽しくコーディングするように進めていく
+// モチベーションと体調は保つ事
+// 分からない場合はリスト化して質問すると効率が良い
+
 // LaravelのTOPページ
 Route::get('/', function () {
   return view('welcome');
@@ -20,41 +26,40 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
-//ログアウト中のページ
-// ・ログインページへ移行
+// ろぐいんぺーじ：ログインページへ移行（ログアウトor未ログイン状態）
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 // ログイン処理する際にpostで送信する。
 // postの場合、LoginControllerのloginに関する処理が行われる。
 
-// ・ユーザー登録ページへ移行
+// ゆーざーとうろくまえ：ユーザー登録ページへ移行
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
 
-// ・ユーザー登録完了
+// ゆーざーとうろくご：ユーザー登録完了
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 // Auth\でAuthフォルダ直下のファイルにあるコントローラーを選択できる。
 
-//ログイン中のページ
+//ろぐいん：ログイン中のページ
 Route::get('/top', 'PostsController@index');
 Route::post('/top', 'PostsController@index');
 // Route::get('next','/top', 'PostsController@index'::class,'index')->name('next.index');
 
-// マイプロフィール
+// まいぷろふぃーる：マイプロフィール
 Route::get('/profile', 'UsersController@profile');
 Route::post('/profile', 'UsersController@profile');
 
-// ユーザー検索ページ
+// ゆーざー：ユーザー検索ページ
 Route::get('/search', 'UsersController@search');
 
-// フォローリスト
+// ふぉろー：フォローリスト
 Route::get('/follow-list', 'PostsController@followList');
 
-// フォロワーリスト
+// ふぉろわー：フォロワーリスト
 Route::get('/follower-list', 'PostsController@followerList');
 
-// （仮）ログアウト機能→あくまでテスト用
+// ろぐあうと：（仮）ログアウト機能→あくまでテスト用
 Route::get('/logout', 'Logoutcontroller@logout');
 Route::post('/logout', 'Logoutcontroller@logout');
 
