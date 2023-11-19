@@ -11,15 +11,14 @@
 |
 */
 
+// LaravelのTOPページ
 Route::get('/', function () {
   return view('welcome');
 });
+
+// 【名前付きルート】ミドルウェアを介してホーム画面に名前を表示する
 Route::get('/home', 'HomeController@index')->name('home');
-// 名前付きルート
-//
-
 Auth::routes();
-
 
 //ログアウト中のページ
 // ・ログインページへ移行
@@ -42,13 +41,17 @@ Route::get('/top', 'PostsController@index');
 Route::post('/top', 'PostsController@index');
 // Route::get('next','/top', 'PostsController@index'::class,'index')->name('next.index');
 
+// マイプロフィール
 Route::get('/profile', 'UsersController@profile');
 Route::post('/profile', 'UsersController@profile');
 
 // ユーザー検索ページ
 Route::get('/search', 'UsersController@search');
 
+// フォローリスト
 Route::get('/follow-list', 'PostsController@followList');
+
+// フォロワーリスト
 Route::get('/follower-list', 'PostsController@followerList');
 
 // （仮）ログアウト機能→あくまでテスト用
