@@ -1,3 +1,4 @@
+{{-- ユーザー検索部分 --}}
 {{-- @extends('layouts.login') --}}
 @extends('posts.index')
 {{-- https://prograshi.com/framework/laravel/extends-section-include-yield/ --}}
@@ -12,4 +13,9 @@
             <img class="user_search_icon" src="{{ asset('images/search.png') }}" alt="ユーザーを検索">
         </div>
     </div>
+    <h2>ここから下にユーザを表示する（注意書き参照）</h2>
+    <h3>オーロラーリン</h3>
+    {{-- やること --}}
+    {{-- CRUD部分を復習してマイグレーション操作を行う→DB→DBからデータを引用→DB編集や削除機能を実装する --}}
+    {{-- この点を復習しつつ何がしたいかを明確にする --}}
 @endsection
