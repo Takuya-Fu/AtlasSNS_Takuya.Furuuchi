@@ -168,13 +168,16 @@ header {
     align-items: center;
     padding-bottom: 50px;
 }
+
 /* 入力フォームの位置調整 */
 .user_search{
-    height: 50px;
+    height: 40px;
     width: 300px;
     margin-top: 20px;
     margin-left: 30px;
+    border-radius: 3px solid #333;
 }
+
 .search-wrapper .user_search_icon{
     margin-left: 20px;
     width: 4%;
