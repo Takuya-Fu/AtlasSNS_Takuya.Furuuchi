@@ -58,4 +58,11 @@ class LoginController extends Controller
         }
         return view("auth.login");
     }
+    public function logout()
+    {
+        Auth::logout();
+        // return Redirect::to('logout');
+        // return Redirect::to('/top');
+        return redirect('/login');
+    }
 }

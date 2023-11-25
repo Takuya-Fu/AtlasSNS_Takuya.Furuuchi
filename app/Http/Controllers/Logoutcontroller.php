@@ -12,8 +12,8 @@ class Logoutcontroller extends Controller
     // ログイン前のトップ画面に戻る。
     public function logout(){
         // ここは仮作成中→ログアウト方法が分かったら書き換えること
-        // Auth::logout();
-        return view('layouts.logout');
-        // return redirect('/logout');
+        Auth::logout();
+        // return view('layouts.logout');
+        return redirect('/logout');
     }
 }

@@ -45,7 +45,7 @@
 
 // アコーディオンメニューを開く
 $(function(){
-  $('.ac__button').click(function(){
+  $('.ac__button').on('click',function(){
     $('.ac__button ul').toggleClass('hide');
   });
 });

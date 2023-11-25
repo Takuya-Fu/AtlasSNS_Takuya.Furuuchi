@@ -43,7 +43,7 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 //ろぐいん：ログイン中のページ
 Route::get('/top', 'PostsController@index');
-Route::post('/top', 'PostsController@index');
+Route::post('top', 'PostsController@index');
 // Route::get('next','/top', 'PostsController@index'::class,'index')->name('next.index');
 
 // まいぷろふぃーる：マイプロフィール
@@ -68,3 +68,10 @@ Route::post('/logout', 'Logoutcontroller@logout');
 // Route::post('logout',
 // [AuthController::class,'logout'])
 // ->name('logout');
+
+
+// https://qiita.com/Hashimoto-Noriaki/items/f4af9fd8bdc10b2f489c
+// 【テスト】ルーティング設定
+Route::get('login','Auth\LoginController@showLoginForm')->name('login');
+Route::get('login','Auth\LoginController@login')->name('login.post');
+Route::get('logout','Auth\LoginController@logout')->name('logout');

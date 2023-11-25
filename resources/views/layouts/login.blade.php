@@ -9,7 +9,7 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -38,9 +38,12 @@
                 <nav class="ac-item">
                     <div class="ac__button">
                         <ul class="ac__body hide">
+                            @if(Auth::check())
                             <li class="body_inner"><a class="link" href="/top">HOME</a></li>
                             <li class="body_inner"><a class="link" href="/profile">プロフィール編集</a></li>
-                            <li class="body_inner"><a class="link" href="/logout">ログアウト</a></li>
+                            {{-- <li class="body_inner"><a class="link" href="/logout">ログアウト</a></li> --}}
+                            <li class="body_inner"><a class="link" href="{{route('logout')}}">ログアウト</a></li>
+                            @endif
                         </ul>
                     </div>
                 </nav>
