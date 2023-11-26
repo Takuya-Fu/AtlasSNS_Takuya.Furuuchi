@@ -45,8 +45,17 @@
 
 // アコーディオンメニューを開く
 $(function(){
-  $('.ac__button').on('click',function(){
+  $('.ac__button').click(function(){
     $('.ac__button ul').toggleClass('hide');
   });
 });
 // ↑toggleClassを使うことで、classが無いときは「付与」してあるときは「除去」する
+
+// $(function(){
+//   $('.ac__button').on('click',function(){
+//     $('.ac__button ul').toggleClass('hide');
+//   });
+// });
+
+// 1125→jqueryがクリックできないのは、ログイン状態ではないのにログイン画面に入ったから
+// →ミドルウェア設定を行えば上記問題は無くなる。

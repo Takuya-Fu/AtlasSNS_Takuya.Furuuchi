@@ -1,10 +1,6 @@
 @extends('layouts.logout')
-{{-- logout.blade.phpの内容を継承する --}}
 
 @section('content')
-{{-- contentに代入する値を設定する。 --}}
-
-<!-- ログイン時の情報をLoginController.phpへ飛ばす -->
 <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/login','method'=> 'post']) !!}
 

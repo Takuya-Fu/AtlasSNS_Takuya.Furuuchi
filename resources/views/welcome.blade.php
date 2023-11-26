@@ -94,7 +94,8 @@
                 <a href="https://forge.laravel.com">Forge</a>
                 <a href="https://github.com/laravel/laravel">GitHub</a>
                 {{-- 以下は自分オリジナル --}}
-                <a href="/top"><button class="btn btn-danger">TOP</button></a>
+                <a href="/top">TOP</a>
+                <a href="/login"><button class="btn btn-primary">ログイン</button></a>
             </div>
             {{-- bootstrapテスト表示用 --}}
             {{-- <div class="bootstrap">
