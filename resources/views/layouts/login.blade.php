@@ -30,8 +30,8 @@
             <div id="head_inner" class="header_inner">
                 <div class="header_right">
                     <div id="login_name" class="login_name">
-                        <p>〇〇さん</p>
-                        {{-- <p>{{$UserName}}さん</p> --}}
+                        <p><?php $user = Auth::user();?>{{$user->username}}さん</p>
+                        {{-- ↑usernameカラムの名前を表示する --}}
                     </div>
                 </div>
                 {{-- アコーディオンメニュー部分→head_innerで100%だと同じ広さになるかも --}}
