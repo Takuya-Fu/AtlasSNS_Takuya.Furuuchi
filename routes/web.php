@@ -75,3 +75,9 @@ Route::post('/logout', 'Logoutcontroller@logout');
 Route::get('login','Auth\LoginController@showLoginForm')->name('login');
 Route::get('login','Auth\LoginController@login')->name('login.post');
 Route::get('logout','Auth\LoginController@logout')->name('logout');
+
+// （認証後の）フォロー設定・フォロー解除ルーティング
+Route::middleware('auth')->group(function(){
+  Route::post('users/{user}/follow','FollowController@follow')->name('users.follow');
+  Route::post('users/{user}/unfollow','FollowController@unfollow')->name('users.unfollow');
+});

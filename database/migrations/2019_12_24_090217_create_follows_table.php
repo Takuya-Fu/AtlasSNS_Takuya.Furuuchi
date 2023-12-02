@@ -1,5 +1,5 @@
 <?php
-
+// followsー→誰が誰をフォローしているか管理する
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -14,14 +14,14 @@ class CreateFollowsTable extends Migration
     public function up()
     {
         Schema::create('follows', function (Blueprint $table) {
-            // $table->integer('id')->autoIncrement();　削除
+            $table->integer('id')->autoIncrement();
             $table->integer('following_id');
             $table->integer('followed_id');
             $table->timestamp('created_at')->useCurrent();
-            // $table->timestamp('updated_at')->default(DB::raw('current_timestamp on update current_timestamp'));　削除
+            $table->timestamp('updated_at')->default(DB::raw('current_timestamp on update current_timestamp'));
             // 1201以下追加
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('followed_id');
+            // $table->unsignedInteger('user_id');
+            // $table->unsignedInteger('followed_id');
         });
     }
 

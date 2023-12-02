@@ -26,4 +26,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // ChatGPT結果より記載
+    public function followers()
+    {
+        return $this->belongsToMany(User::class,'user_follows','user_id','follower_id');
+    }
+
+    public function following()
+    {
+        return $this->belongsToMany(User::class,'user_follows','follower_id','user_id');
+    }
 }
