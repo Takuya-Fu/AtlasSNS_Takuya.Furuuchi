@@ -11,6 +11,6 @@ class FollowsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //1203ここにフォロー者の情報を入れる？
     }
 }

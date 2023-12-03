@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 {{-- 画面に表示されない部分 --}}
+
 <head>
     <meta charset="utf-8" />
     <!--IEブラウザ対策-->
@@ -9,7 +10,10 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+    {{-- jQuery --}}
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    {{-- bootstrap --}}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -23,26 +27,27 @@
 </head>
 
 {{-- 画面に表示される部分 --}}
+
 <body>
     <header>
         <div id = "head" class= "header_wrapper">
-            <h1><a href="/top"><img class="header_logo" src="{{ asset('images/atlas.png') }}" alt=""></a></h1>
+            <h1><a href="/top"><img class="header_logo" src="{{ asset('images/atlas.png') }}" alt=""></a>
+            </h1>
             <div id="head_inner" class="header_inner">
                 <div class="header_right">
                     <div id="login_name" class="login_name">
-                        <p><?php $user = Auth::user();?>{{$user->username}}さん</p>
-                        {{-- ↑usernameカラムの名前を表示する --}}
+                        <p><?php $user = Auth::user(); ?>{{ $user->username }}さん</p>
+                        {{-- ↑usernameカラムの名前を表示する　$user->usernameでユーザー --}}
                     </div>
                 </div>
                 {{-- アコーディオンメニュー部分→head_innerで100%だと同じ広さになるかも --}}
                 <nav class="ac-item">
                     <div class="ac__button">
                         <ul class="ac__body hide">
-                            @if(Auth::check())
-                            <li class="body_inner"><a class="link" href="/top">HOME</a></li>
-                            <li class="body_inner"><a class="link" href="/profile">プロフィール編集</a></li>
-                            {{-- <li class="body_inner"><a class="link" href="/logout">ログアウト</a></li> --}}
-                            <li class="body_inner"><a class="link" href="{{route('logout')}}">ログアウト</a></li>
+                            @if (Auth::check())
+                                <li class="body_inner"><a class="link" href="/top">HOME</a></li>
+                                <li class="body_inner"><a class="link" href="/profile">プロフィール編集</a></li>
+                                <li class="body_inner"><a class="link" href="{{ route('logout') }}">ログアウト</a></li>
                             @endif
                         </ul>
                     </div>
@@ -62,22 +67,24 @@
         {{-- 右側のフォロー人数を表示する --}}
         <div id="side-bar" class="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                {{-- 1203以下のデーターはxamppからデータを取得する --}}
+               
+                <p><?php $user=Auth::user(); ?>{{$user->username}}さんの</p>
                 <div>
                     <p>フォロー数</p>
-                    <p>〇〇名</p>
+                {{-- 編集 --}}<p>〇〇名</p>
                     {{-- ↑ここはデータベースから引用する --}}
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
+                <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
                 <div>
                     <p>フォロワー数</p>
-                    <p>〇〇名</p>
+                {{-- 編集 --}}<p>〇〇名</p>
                     {{-- ↑ここはデータベースから引用する --}}
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                    <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
                 {{-- ↑ここはbtn部分をbootstrapで引用して装飾する --}}
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <a href="/search" class="btn btn-primary">ユーザー検索</a>
             {{-- ↑ここはbtn部分をbootstrapで引用して装飾する --}}
         </div>
     </div>

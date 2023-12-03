@@ -1,5 +1,5 @@
 <?php
-
+// ユーザー情報を保存するためのテーブル
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
@@ -28,11 +28,15 @@ class User extends Authenticatable
     ];
 
     // ChatGPT結果より記載
+    // メソッドは6つ作成
+    // （フォローする・フォロー解除する・フォローされている・フォローされていない・フォローされていない→フォローOK・フォローされている→フォローNG）
+    // フォロワー→フォロー
     public function followers()
     {
         return $this->belongsToMany(User::class,'user_follows','user_id','follower_id');
     }
 
+    // フォロー→フォロワー
     public function following()
     {
         return $this->belongsToMany(User::class,'user_follows','follower_id','user_id');
