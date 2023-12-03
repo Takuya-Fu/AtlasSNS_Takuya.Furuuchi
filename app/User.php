@@ -31,6 +31,7 @@ class User extends Authenticatable
     // メソッドは6つ作成
     // （フォローする・フォロー解除する・フォローされている・フォローされていない・フォローされていない→フォローOK・フォローされている→フォローNG）
     // フォロワー→フォロー
+    // https://chat.openai.com/share/f5c6c126-2848-4f7d-bcbb-73463560f449
     public function followers()
     {
         return $this->belongsToMany(User::class,'user_follows','user_id','follower_id');
