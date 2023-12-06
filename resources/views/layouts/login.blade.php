@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-{{-- 画面に表示されない部分 --}}
-
 <head>
     <meta charset="utf-8" />
     <!--IEブラウザ対策-->
@@ -25,8 +23,6 @@
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
 </head>
-
-{{-- 画面に表示される部分 --}}
 
 <body>
     <header>
@@ -68,20 +64,19 @@
         <div id="side-bar" class="side-bar">
             <div id="confirm">
                 {{-- 1203以下のデーターはxamppからデータを取得する --}}
-               
-                <p><?php $user=Auth::user(); ?>{{$user->username}}さんの</p>
+                <p><?php $user = Auth::user(); ?>{{ $user->username }}さんの</p>
                 <div>
                     <p>フォロー数</p>
-                {{-- 編集 --}}<p>〇〇名</p>
+                    {{-- 編集 --}}<p>〇〇名</p>
                     {{-- ↑ここはデータベースから引用する --}}
                 </div>
                 <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
                 <div>
                     <p>フォロワー数</p>
-                {{-- 編集 --}}<p>〇〇名</p>
+                    {{-- 編集 --}}<p>〇〇名</p>
                     {{-- ↑ここはデータベースから引用する --}}
                 </div>
-                    <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
+                <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
                 {{-- ↑ここはbtn部分をbootstrapで引用して装飾する --}}
             </div>
             <a href="/search" class="btn btn-primary">ユーザー検索</a>
@@ -91,7 +86,6 @@
     <footer>
     </footer>
     <script src="{{ asset('/js/accordion.js') }}"></script>
-
 </body>
 
 </html>

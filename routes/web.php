@@ -72,12 +72,28 @@ Route::post('/logout', 'Logoutcontroller@logout');
 
 // https://qiita.com/Hashimoto-Noriaki/items/f4af9fd8bdc10b2f489c
 // 【テスト】ルーティング設定
-Route::get('login','Auth\LoginController@showLoginForm')->name('login');
-Route::get('login','Auth\LoginController@login')->name('login.post');
-Route::get('logout','Auth\LoginController@logout')->name('logout');
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('login', 'Auth\LoginController@login')->name('login.post');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // （認証後の）フォロー設定・フォロー解除ルーティング
-Route::middleware('auth')->group(function(){
-  Route::post('users/{user}/follow','FollowController@follow')->name('users.follow');
-  Route::post('users/{user}/unfollow','FollowController@unfollow')->name('users.unfollow');
+Route::middleware('auth')->group(function () {
+  Route::post('users/{user}/follow', 'FollowController@follow')->name('users.follow');
+  Route::post('users/{user}/unfollow', 'FollowController@unfollow')->name('users.unfollow');
+});
+
+// 1206追加
+Route::get('/', function () {
+  return view('welcome');
+});
+
+// https://qiita.com/namizatork/items/0c81b0a94a1084cda6de
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+// ログイン状態→認証したときにしかアクセスできないようにする。
+Route::group(['middleware' => 'auth'], function () {
+  // ユーザー関連
+  Route::resource('users', 'UsersController');
+  Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
 });

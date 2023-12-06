@@ -43,4 +43,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'user_follows', 'user_id', 'follower_id');
     }
+    // 5名分の情報を習得して表示　paginate→ページ割りの事を表す。
+    public function getAllUsers(Int $user_id){
+        return $this->Where('id','<>',$user_id)->paginate(5);
+    }
 }
