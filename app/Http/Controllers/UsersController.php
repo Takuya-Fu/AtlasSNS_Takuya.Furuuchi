@@ -31,7 +31,7 @@ class UsersController extends Controller
         $follower = auth()->user();
         // フォローしているか
         $is_following = $follower->isFollowing($user->id);
-        if(!$is_following){
+        if ($is_following) {
             // フォローしていればフォロー解除
             $follower->unfollow($user->id);
             return back();
@@ -39,9 +39,10 @@ class UsersController extends Controller
     }
 
     // メソッドインジェクション→(User $user)の部分
-    public function index(User $user){
+    public function index(User $user)
+    {
         $all_users = $user->getAllUsers(auth()->user()->id);
-        return view('users.index',[
+        return view('users.index', [
             'all_users' => $all_users
         ]);
     }

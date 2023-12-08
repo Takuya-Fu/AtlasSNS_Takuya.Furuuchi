@@ -44,7 +44,33 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'user_follows', 'user_id', 'follower_id');
     }
     // 5名分の情報を習得して表示　paginate→ページ割りの事を表す。
-    public function getAllUsers(Int $user_id){
-        return $this->Where('id','<>',$user_id)->paginate(5);
+    public function getAllUsers(Int $user_id)
+    {
+        return $this->Where('id', '<>', $user_id)->paginate(5);
+    }
+    // https://qiita.com/namizatork/items/0c81b0a94a1084cda6de
+
+    // フォローする
+    public function follow(Int $user_id)
+    {
+        return $this->follows()->attach($user_id);
+    }
+
+    // フォローを解除する
+    public function unfollow(Int $user_id)
+    {
+        return $this->follows()->detach($user_id);
+    }
+
+    // フォローしているか
+    public function isFollowing(Int $user_id)
+    {
+        return (bool) $this->follows()->where('followed_id', $user_id)->first(['id']);
+    }
+
+    // フォローされているか
+    public function isFollowed(Int $user_id)
+    {
+        return (bool) $this->followers()->where('followed_id', $user_id)->first(['id']);
     }
 }
