@@ -1,7 +1,7 @@
 <?php
+// ユーザー情報を取得するためのコントローラー
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -11,6 +11,15 @@ use App\Models\Follower;
 
 class UsersController extends Controller
 {
+    // メソッドインジェクション→(User $user)の部分
+    public function index(User $user)
+    {
+        $all_users = $user->getAllUsers(auth()->user()->id);
+        return view('users.index', [
+            'all_users' => $all_users
+        ]);
+    }
+
     // フォローする
     public function follow(User $user)
     {
@@ -36,14 +45,5 @@ class UsersController extends Controller
             $follower->unfollow($user->id);
             return back();
         }
-    }
-
-    // メソッドインジェクション→(User $user)の部分
-    public function index(User $user)
-    {
-        $all_users = $user->getAllUsers(auth()->user()->id);
-        return view('users.index', [
-            'all_users' => $all_users
-        ]);
     }
 }
