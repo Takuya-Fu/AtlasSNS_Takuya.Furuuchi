@@ -18,8 +18,10 @@ class CreateFollowsTable extends Migration
             $table->integer('id')->autoIncrement();
             // ↑IDを自動で採番する
             $table->integer('following_id');
+            // フォローしたID
             // ↑↓整数で表示する
             $table->integer('followed_id');
+            // フォローされたID
             $table->timestamp('created_at')->useCurrent();
             // ↑↓作成日時を記載する
             $table->timestamp('updated_at')->default(DB::raw('current_timestamp on update current_timestamp'));

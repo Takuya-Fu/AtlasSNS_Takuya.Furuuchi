@@ -94,6 +94,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 // ログイン状態→認証したときにしかアクセスできないようにする。
 Route::group(['middleware' => 'auth'], function () {
   // ユーザー関連
-  Route::resource('users', 'UsersController');
   Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
 });
