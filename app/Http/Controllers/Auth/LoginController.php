@@ -56,13 +56,11 @@ class LoginController extends Controller
             }
             // ログインが成功したら、トップページへ
         }
-        return view("auth.login");
+        return view("login");
     }
     public function logout()
     {
         Auth::logout();
-        // return Redirect::to('logout');
-        // return Redirect::to('/top');
         return redirect('/login');
     }
 }

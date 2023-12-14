@@ -1,20 +1,8 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 // 1119進めるコツ
 // 完成見本を見ながらコードを入力し、都度確認（進捗を見て頭で覚える）
 // 楽しくコーディングするように進めていく
-// モチベーションと体調は保つ事
 // 分からない場合はリスト化して質問すると効率が良い
 
 // LaravelのTOPページ
@@ -38,8 +26,7 @@ Route::post('/register', 'Auth\RegisterController@register');
 
 // ゆーざーとうろくご：ユーザー登録完了
 Route::get('/added', 'Auth\RegisterController@added');
-Route::post('/added', 'Auth\RegisterController@added');
-// Auth\でAuthフォルダ直下のファイルにあるコントローラーを選択できる。
+// Route::post('/added', 'Auth\RegisterController@added');
 
 //ろぐいん：ログイン中のページ
 Route::get('/top', 'PostsController@index');
@@ -62,13 +49,6 @@ Route::get('/follower-list', 'PostsController@followerList');
 // ろぐあうと：（仮）ログアウト機能→あくまでテスト用
 Route::get('/logout', 'Logoutcontroller@logout');
 Route::post('/logout', 'Logoutcontroller@logout');
-
-// ログアウト機能（実際用）
-// https://www.youtube.com/watch?v=UcBHf0L9KVU
-// Route::post('logout',
-// [AuthController::class,'logout'])
-// ->name('logout');
-
 
 // https://qiita.com/Hashimoto-Noriaki/items/f4af9fd8bdc10b2f489c
 // 【テスト】ルーティング設定
