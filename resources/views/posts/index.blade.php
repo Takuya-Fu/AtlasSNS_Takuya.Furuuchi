@@ -13,7 +13,7 @@
         {{-- 投稿内容表示部分 --}}
     </div>
 @endsection
-
+{{--  --}}
 {{-- フォローされているかの判定 --}}
 {{-- @if (auth()->user()->isFollowed($user->id)) --}}
 
