@@ -39,6 +39,8 @@ Route::post('/profile', 'UsersController@profile');
 
 // ゆーざー：ユーザー検索ページ
 Route::get('/search', 'UsersController@search');
+// Route::view('/search', 'UsersController@search');
+
 
 // ふぉろー：フォローリスト
 Route::get('/follow-list', 'PostsController@followList');
@@ -76,3 +78,5 @@ Route::group(['middleware' => 'auth'], function () {
   // ユーザー関連
   Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
 });
+
+

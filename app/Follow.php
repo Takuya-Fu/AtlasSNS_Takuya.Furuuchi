@@ -9,9 +9,13 @@ class Follow extends Model
 {
     protected $table = 'follows';
 
-    // フォロー部分のリレーション
+    // ユーザーとツイートの関係(1対多）
     public function user() { //追加
-        return $this->belongsTo(\App\User::class, 'user_id', 'id');
+        // return $this->belongsTo(\App\User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class);
         // belongsTo→所属する
+        // 【解説】これでFollowテーブルのUser_idとusersテーブルのidがリレーションでき、
+        // 
     }
+    
 }

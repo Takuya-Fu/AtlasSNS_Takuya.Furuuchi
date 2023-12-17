@@ -12,7 +12,12 @@ use App\Models\Follower;
 
 class UsersController extends Controller
 {
-    // 1212以下数値で表示する為の表記
+    // ユーザー検索部分を表示
+    public function search(){
+        return view('users.search');
+    }
+
+    // 参考サイト：https://qiita.com/namizatork/items/0c81b0a94a1084cda6de#%E3%83%A6%E3%83%BC%E3%82%B6%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2
     public function show(User $user, Tweet $tweet, Follower $follower)
     {
         $login_user = auth()->user();
