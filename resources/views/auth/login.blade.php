@@ -1,5 +1,4 @@
 @extends('layouts.logout')
-{{-- logout.blade.phpのHTML記述内容を表示する --}}
 
 @section('content')
 {!! Form::open(['url' => '/login','method'=> 'post']) !!}

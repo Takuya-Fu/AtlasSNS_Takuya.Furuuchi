@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
+// ↑User.phpモデルを使用するという意味？
 class PostsController extends Controller
 {
     //
@@ -14,12 +15,14 @@ class PostsController extends Controller
     }
     // フォローリスト　followList
     public function followList(){
+        $users=User::get();
         return view('follows.followList');
     }
     // フォロワーリスト　followerList
     public function followerList(){
         return view('follows.followerList');
     }
+    // ユーザー検索
     public function search(){
         return view('users.search');
     }
