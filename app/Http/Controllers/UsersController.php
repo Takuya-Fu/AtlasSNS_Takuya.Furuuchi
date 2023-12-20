@@ -12,6 +12,10 @@ use App\Models\Follower;
 
 class UsersController extends Controller
 {
+    // プロフィール画面を表示
+    public function profile(){
+        return view('users.profile');
+    }
     // ユーザー検索部分を表示
     public function search(){
         return view('users.search');
@@ -20,6 +24,7 @@ class UsersController extends Controller
     // 参考サイト：https://qiita.com/namizatork/items/0c81b0a94a1084cda6de#%E3%83%A6%E3%83%BC%E3%82%B6%E8%A9%B3%E7%B4%B0%E7%94%BB%E9%9D%A2
     public function show(User $user, Tweet $tweet, Follower $follower)
     {
+        // 値を変数に格納する。
         $login_user = auth()->user();
         $is_following = $login_user->isFollowing($user->id);
         $is_followed = $login_user->isFollowed($user->id);

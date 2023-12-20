@@ -2,7 +2,6 @@
 {{-- logout.blade.phpのHTML記述内容を表示する --}}
 
 @section('content')
-<!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/login','method'=> 'post']) !!}
 
 <p>AtlasSNSへようこそ</p>
@@ -15,7 +14,6 @@
 {{ Form::submit('LOGIN') }}
 
 <p><a href="/register">新規ユーザーの方はこちら</a></p>
-{{-- /registerルーティングのRegisterControllerの操作が始まる --}}
 
 {!! Form::close() !!}
 

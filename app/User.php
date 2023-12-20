@@ -28,13 +28,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // ChatGPT結果より記載し、quitaの内容を追記
-    // https://chat.openai.com/share/f5c6c126-2848-4f7d-bcbb-73463560f449
-    // https://qiita.com/namizatork/items/0c81b0a94a1084cda6de
-
     // belongsToMany→多対多　attach→紐づける　detach→切り離す
-    // username→ログイン名　mail→メールアドレス　password→ログインパスワード
-
     // ユーザーがフォローしているユーザーを取得するリレーション（関連付け）
     // belongToMany→多対多=ユーザー同士を結び付けること
 

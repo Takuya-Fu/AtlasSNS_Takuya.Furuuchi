@@ -58,29 +58,22 @@
     <div id="row">
         <div id="container">
             @yield('content')
-            {{-- index.blade.phpの内容を継承する --}}
         </div>
-        {{-- 右側のフォロー人数を表示する --}}
         <div id="side-bar" class="side-bar">
             <div id="confirm">
-                {{-- 1203以下のデーターはxamppからデータを取得する --}}
                 <p><?php $user = Auth::user(); ?>{{ $user->username }}さんの</p>
                 <div>
                     <p>フォロー数</p>
-                    {{-- 編集 --}}<p>〇〇名</p>
-                    {{-- ↑ここはデータベースから引用する --}}
+                    <p>〇〇名</p>
                 </div>
                 <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
                 <div>
                     <p>フォロワー数</p>
-                    {{-- 編集 --}}<p>〇〇名</p>
-                    {{-- ↑ここはデータベースから引用する --}}
+                    <p>〇〇名</p>
                 </div>
                 <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
-                {{-- ↑ここはbtn部分をbootstrapで引用して装飾する --}}
             </div>
             <a href="/search" class="btn btn-primary">ユーザー検索</a>
-            {{-- ↑ここはbtn部分をbootstrapで引用して装飾する --}}
         </div>
     </div>
     <footer>

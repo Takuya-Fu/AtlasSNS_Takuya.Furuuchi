@@ -1,5 +1,4 @@
 @extends('layouts.login')
-
 @section('content')
     {{-- <h2>機能を実装していきましょう。</h2> --}}
     {{-- publicフォルダに入っている --}}
@@ -13,8 +12,3 @@
         {{-- 投稿内容表示部分 --}}
     </div>
 @endsection
-{{-- フォローされているかの判定 --}}
-{{-- @if (auth()->user()->isFollowed($user->id)) --}}
-
-{{-- フォローしているかの判定 --}}
-{{-- @if (auth()->user()->isFollowing($user->id)) --}}
