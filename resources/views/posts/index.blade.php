@@ -9,6 +9,6 @@
             <input class="post" type="text" placeholder="投稿内容を入力して下さい" size="100%">
             <img class="send_button" src="{{ asset('images/post.png') }}" alt="送信ボタン">
         </div>
-        {{-- 投稿内容表示部分 --}}
+
     </div>
 @endsection

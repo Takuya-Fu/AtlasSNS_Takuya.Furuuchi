@@ -6,31 +6,17 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+// use Illuminate→各クラスとメソッドが定義されている
 
 class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     // fillable（ホワイトリスト→許可）またはgurded（）ブラックリスト→拒否のどちらかを記述する
     // ↓ユーザー名・メールアドレス・パスワードをセキュリティ
     protected $fillable = [
         'username', 'mail', 'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    // ↓取得対象外にする項目
-    // 【参考】https://e-seventh.com/laravel-eloquent-hidden/
-    // 【モデルで使えるメンバ変数】https://blog.capilano-fw.com/?p=2114
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+
 }

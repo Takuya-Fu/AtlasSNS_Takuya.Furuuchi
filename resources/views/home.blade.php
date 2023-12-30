@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+{{-- ユーザー登録し、ログイン完了画面に入る時 --}}
 @section('content')
 <div class="container">
     <div class="row">

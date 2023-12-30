@@ -16,7 +16,7 @@ class UsersController extends Controller
     public function profile(){
         return view('users.profile');
     }
-    // ユーザー検索部分を表示
+    // ユーザー検索部分を表示→この後ユーザー情報をモデルで取得したい
     public function search(){
         return view('users.search');
     }
