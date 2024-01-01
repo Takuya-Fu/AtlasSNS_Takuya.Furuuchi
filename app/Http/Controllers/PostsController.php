@@ -2,7 +2,7 @@
 // 見本　https://xd.adobe.com/view/0c9134dc-3528-4b4d-5c2a-b892202aa207-7aa0/screen/65f4e60b-6b17-4e39-a339-fe432bc03501?hints=off
 namespace App\Http\Controllers;
 
-use App\Models\User;
+// use App\Models\User;
 // ↑User.phpモデルを使用するという意味？
 class PostsController extends Controller
 {
@@ -13,17 +13,19 @@ class PostsController extends Controller
         // viewsフォルダ内のpostsフォルダ以下の階層のindex.blade.phpを参照する
     }
     // フォローリスト　followList
-    public function followList(){
-        $users=User::get();
+    public function followList()
+    {
+        // $users = User::get();
         return view('follows.followList');
     }
     // フォロワーリスト　followerList
-    public function followerList(){
+    public function followerList()
+    {
         return view('follows.followerList');
     }
     // ユーザー検索
-    public function search(){
+    public function search()
+    {
         return view('users.search');
     }
-
 }

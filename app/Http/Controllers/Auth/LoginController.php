@@ -45,8 +45,6 @@ class LoginController extends Controller
     }
 
     public function login(Request $request)
-    // Request $request→サイト閲覧者がフォームから入力したデータを受け取る。
-    // 以下ログイン時の処理について記載。
     {
         if ($request->isMethod('post')) {
             // もしもpost送信だった場合、

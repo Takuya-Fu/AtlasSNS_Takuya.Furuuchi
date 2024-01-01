@@ -15,12 +15,9 @@
 ・フォロー登録ボタン/フォロー解除ボタンを設置
 */
 
-
-
-
 // 1.LaravelにアクセスしたらTOPページを表示する
 Route::get('/', function () {
-  // return view('welcome');
+  return view('welcome');
 });
 
 // ゆーざー：ユーザー検索ページ
@@ -34,8 +31,7 @@ Auth::routes();
 // ろぐいんぺーじ：ログインページへ移行（ログアウトor未ログイン状態）
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
-// ログイン処理する際にpostで送信する。
-// postの場合、LoginControllerのloginに関する処理が行われる。
+// ↑Authフォルダの中のLoginControllerにあるloginの処理を行うという意味
 
 // ゆーざーとうろくまえ：ユーザー登録ページへ移行
 Route::get('/register', 'Auth\RegisterController@register');
@@ -82,5 +78,3 @@ Route::group(['middleware' => 'auth'], function () {
   // ユーザー関連
   Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
 });
-
-
