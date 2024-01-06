@@ -1,28 +1,14 @@
 <?php
-/*【動作手順を記述】
-＜ログイン部分＞
-【新規ユーザー】
-1.ログイン画面→新規登録→登録後に名前を表示→ログインする→ログイン後にマイページを表示
-【登録済みユーザー】
-2.ログイン画面→ログインする→ログイン後にマイページを表示
-【パスワードを忘れたユーザー】
-3.ログイン画面→パスワードを忘れた方画面→パスワード再発行→ログインする→ログイン後にマイページを表示
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
+Route::get('/search',[UsersController::class,'search']);
+// ↑URLの\searchにアクセスしたらUsersController内のsearchメソッドにアクセスする。
 
-＜☆作成中☆→ユーザー検索＞
-ユーザー検索ボタンを押下したら「自分以外のユーザーが全て表示されている状態にする」
-・ユーザーアイコン
-・ユーザー名
-・フォロー登録ボタン/フォロー解除ボタンを設置
-*/
 
 // 1.LaravelにアクセスしたらTOPページを表示する
 Route::get('/', function () {
   return view('welcome');
 });
-
-// ゆーざー：ユーザー検索ページ
-Route::get('/search', 'UsersController@search');
-
 
 // 【名前付きルート】ミドルウェアを介してホーム画面に名前を表示する
 Route::get('/home', 'HomeController@index')->name('home');
@@ -63,10 +49,6 @@ Route::post('/logout', 'Logoutcontroller@logout');
 Route::middleware('auth')->group(function () {
   Route::post('users/{user}/follow', 'FollowController@follow')->name('users.follow');
   Route::post('users/{user}/unfollow', 'FollowController@unfollow')->name('users.unfollow');
-});
-
-Route::get('/', function () {
-  return view('welcome');
 });
 
 // https://qiita.com/namizatork/items/0c81b0a94a1084cda6de
