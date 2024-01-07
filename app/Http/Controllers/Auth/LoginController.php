@@ -41,7 +41,6 @@ class LoginController extends Controller
     // コンストラクタとは？→クラスから事例が発生する時（インスタンスを生成）に自動的に呼び出すメソッド。
     {
         $this->middleware('guest')->except('logout');
-        // ゲスト（未ログイン状態）ならログアウトを行う
     }
 
     public function login(Request $request)

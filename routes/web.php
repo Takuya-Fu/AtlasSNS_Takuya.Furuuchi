@@ -15,7 +15,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 // ろぐいんぺーじ：ログインページへ移行（ログアウトor未ログイン状態）
-Route::get('/login', 'Auth\LoginController@login');
+// Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 // ↑Authフォルダの中のLoginControllerにあるloginの処理を行うという意味
 
@@ -50,7 +50,6 @@ Route::middleware('auth')->group(function () {
   Route::post('users/{user}/follow', 'FollowController@follow')->name('users.follow');
   Route::post('users/{user}/unfollow', 'FollowController@unfollow')->name('users.unfollow');
 });
-
 // https://qiita.com/namizatork/items/0c81b0a94a1084cda6de
 Auth::routes();
 
