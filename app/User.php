@@ -1,17 +1,44 @@
 <?php
-// ↓0106Modelsフォルダに移行したため、場所を変更し記述も変更。
+// app/User.php
+
 // namespace App\Models;
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable; /*←Authenticatableは認証機能のこと*/
 // ↓0106追加
-// use illuminate\database\Eloquent\Model;
-// use illuminate\Support\Facades\DB;
+use Illuminate\database\Eloquent\Model;
 
-/* 参照先URL:http://taustation.com/laravel-user-model/
-userクラスはModelクラスを（直接には）継承していない。userクラスはAuthenticatableクラスを継承している。
-AuthenticatableクラスはIlluminate\Foundation\Auth\Userのエイリアス（別名）として定義されている。 */ 
+class User extends Authenticatable
+// ↓0108追加
+// class User extends Model
+{
+    // use Notifiable;
+    // ↓0108追加
+    public function getAllUsers(){
+        return $this->all();
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+
+    protected $fillable = [
+        'username', 'mail', 'password',
+    ];
+    // protected $table = 'atlas_sns';
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+}
 
 /**
  * Create a new user instance after a valid registration.
@@ -19,14 +46,3 @@ AuthenticatableクラスはIlluminate\Foundation\Auth\Userのエイリアス（�
  * @param  array  $data
  * @return App\Models\User
  */
-
-class User extends Authenticatable
-{
-    use Notifiable;
-    protected $fillable = [
-        'username', 'mail', 'password',
-    ];
-    // protected $table = 'atlas_sns';
-    /*　↑atlas_snsテーブルからデータを呼び出す。
-    　　※現状データベースがテーブルが無いとエラーが出る　*/
-}

@@ -1,11 +1,13 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
-Route::get('/search',[UsersController::class,'search']);
+// Route::get('/search',[UsersController::class,'search']);
 // ↑URLの\searchにアクセスしたらUsersController内のsearchメソッドにアクセスする。
+Route::get('/search','UsersController@index');
+Route::post('/search','UsersController@index');
 
 
-// 1.LaravelにアクセスしたらTOPページを表示する
+
 Route::get('/', function () {
   return view('welcome');
 });
@@ -29,7 +31,7 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 //ろぐいん：ログイン中のページ
 Route::get('/top', 'PostsController@index');
-Route::post('top', 'PostsController@index');
+Route::post('/top', 'PostsController@index');
 
 // まいぷろふぃーる：マイプロフィール
 Route::get('/profile', 'UsersController@profile');

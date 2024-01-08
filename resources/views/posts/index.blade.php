@@ -1,4 +1,6 @@
 @extends('layouts.login')
+{{-- ↑login.blade.phpの内容を引っ張ってきている --}}
+
 @section('content')
     {{-- <h2>機能を実装していきましょう。</h2> --}}
     {{-- publicフォルダに入っている --}}

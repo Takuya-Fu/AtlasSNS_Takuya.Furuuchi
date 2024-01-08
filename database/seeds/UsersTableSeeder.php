@@ -25,8 +25,3 @@ class UsersTableSeeder extends Seeder
         ]);
     }
 }
-
-// ユーザー検索時に引用したいデータ（migration→users_table内のカラム）
-// images→アイコン画像　username→ユーザー名
-// フォロー解除ボタンとフォローするボタン
-// 並びとしては「アイコン画像・名前・フォローorフォロー解除ボタン」
