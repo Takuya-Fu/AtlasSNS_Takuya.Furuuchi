@@ -14,12 +14,12 @@ class UsersController extends Controller
         return view('users.profile');
     }
     // 0108↓追加
-    // public function index()
-    // {
-    //     $userNameData = new User();
-    //     $userNames = $userNameData->getAllusers();
-    //     return view('users.search', ['username' => $userNames]);
-    // }
+    public function index()
+    {
+        $userNameData = new User();
+        $userNames = $userNameData->getAllusers();
+        return view('users.search', ['username' => $userNames]);
+    }
     // 0108↑追加
 
     // ユーザー検索部分を表示→この後ユーザー情報をモデルで取得したい
