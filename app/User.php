@@ -1,24 +1,18 @@
 <?php
-// app/User.php
-
-// namespace App\Models;
+// namespace App\Models\User;
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable; /*←Authenticatableは認証機能のこと*/
+// use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+/*↑Authenticatableは認証機能のこと*/
 // ↓0106追加
-use Illuminate\database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+// class User extends Authenticatable
 // ↓0108追加
-// class User extends Model
+class User extends Model
+// ↑useのどちらを使うか決める（Authenticatable or Model）
 {
-    // use Notifiable;
-    // ↓0108追加
-    public function getAllUsers(){
-        return $this->all();
-    }
-
     /**
      * The attributes that are mass assignable.
      *
@@ -28,6 +22,8 @@ class User extends Authenticatable
     protected $fillable = [
         'username', 'mail', 'password',
     ];
+
+    protected $table = 'users';
     // protected $table = 'atlas_sns';
 
     /**
@@ -35,9 +31,9 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    // protected $hidden = [
+    //     'password', 'remember_token',
+    // ];
 }
 
 /**

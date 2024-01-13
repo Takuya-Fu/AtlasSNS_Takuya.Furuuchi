@@ -6,8 +6,6 @@ use App\Http\Controllers\UsersController;
 Route::get('/search','UsersController@index');
 Route::post('/search','UsersController@index');
 
-
-
 Route::get('/', function () {
   return view('welcome');
 });

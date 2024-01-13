@@ -2,7 +2,7 @@
 {{-- ↑login.blade.phpの内容を引っ張ってきている --}}
 
 @section('content')
-    {{-- <h2>機能を実装していきましょう。</h2> --}}
+    <h2>機能を実装していきましょう。</h2>
     {{-- publicフォルダに入っている --}}
     <div id="main" class="main_container">
         {{-- 投稿セクション --}}
@@ -11,6 +11,5 @@
             <input class="post" type="text" placeholder="投稿内容を入力して下さい" size="100%">
             <img class="send_button" src="{{ asset('images/post.png') }}" alt="送信ボタン">
         </div>
-
     </div>
 @endsection
