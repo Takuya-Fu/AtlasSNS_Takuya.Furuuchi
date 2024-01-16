@@ -24,7 +24,7 @@ class User extends Model
     ];
 
     protected $table = 'users';
-    // protected $table = 'atlas_sns';
+    // ↑usersテーブルからデータを管理する（やり取りする）
 
     /**
      * The attributes that should be hidden for arrays.

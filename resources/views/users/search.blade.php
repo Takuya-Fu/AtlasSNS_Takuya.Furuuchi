@@ -18,15 +18,19 @@
                     {{-- 検索で一致した場合→以下にユーザーのアイコン・ユーザー名・フォローボタンを表示する --}}
                     {{-- @elseif ($keyword = ) --}}
                 @endif
-                @foreach ($users as $user)
-                    <li>{{ $user->mail }}</li><br>
-                @endforeach
             </div>
         </div>
     </div>
     <p>ここから下は検索結果を表示する</p>
     {{-- 自分以外のユーザーのアイコンを表示→foreachタグで表示する --}}
-
+    @foreach ($users as $user)
+        <div class="user_list">
+            <ul>
+                <li>{{ $user->images }}</li>
+                <li>{{ $user->mail }}</li>
+            </ul>
+        </div>
+    @endforeach
     {{-- 自分以外のユーザー名を表示→foreachタグで表示する --}}
 
     {{-- フォロー解除・フォローボタンを表示→リレーション機能を実施する --}}

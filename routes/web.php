@@ -1,8 +1,10 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
-// Route::get('/search',[UsersController::class,'search']);
-// ↑URLの\searchにアクセスしたらUsersController内のsearchメソッドにアクセスする。
+
+Route::resource('user','UsersController',['only'=>['edit','update']]);
+// 変数userの引数は'UsersControllerのonly内の'edit','update'をルーティング？
+
 Route::get('/search','UsersController@index');
 Route::post('/search','UsersController@index');
 

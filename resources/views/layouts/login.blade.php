@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <!--IEブラウザ対策-->
@@ -25,60 +26,67 @@
 </head>
 
 <body>
+
     <body>
-    <header>
-        <div id = "head" class= "header_wrapper">
-            <h1><a href="/top"><img class="header_logo" src="{{ asset('images/atlas.png') }}" alt=""></a>
-            </h1>
-            <div id="head_inner" class="header_inner">
-                <div class="header_right">
-                    <div id="login_name" class="login_name">
-                        {{-- ↑（名前表示一旦削除）usernameカラムの名前を表示する　$user->usernameでユーザー --}}
+        <header>
+            <div id = "head" class= "header_wrapper">
+                <h1><a href="/top"><img class="header_logo" src="{{ asset('images/atlas.png') }}" alt=""></a>
+                </h1>
+                <div id="head_inner" class="header_inner">
+                    <div class="header_right">
+                        <div id="login_name" class="login_name">
+                            @auth
+                                <p>{{ Auth::user()->name }}さん</p>
+                                {{-- ☆ここにログインユーザー名を表示させる構文を書く☆ --}}
+                            @endauth
+                        </div>
+                    </div>
+                    {{-- アコーディオンメニュー部分→head_innerで100%だと同じ広さになるかも --}}
+                    <nav class="ac-item">
+                        <div class="ac__button">
+                            <ul class="ac__body hide">
+                                @if (Auth::check())
+                                    <li class="body_inner"><a class="link" href="/top">HOME</a></li>
+                                    <li class="body_inner"><a class="link" href="/profile">プロフィール編集</a></li>
+                                    <li class="body_inner"><a class="link" href="{{ route('logout') }}">ログアウト</a></li>
+                                @endif
+                            </ul>
+                        </div>
+                    </nav>
+                    {{-- //アコーディオンメニュー部分 --}}
+                    <div class="icon_wrapper">
+                        <img class="header icon" src="{{ asset('images/icon1.png') }}" alt="icon1">
                     </div>
                 </div>
-                {{-- アコーディオンメニュー部分→head_innerで100%だと同じ広さになるかも --}}
-                <nav class="ac-item">
-                    <div class="ac__button">
-                        <ul class="ac__body hide">
-                            @if (Auth::check())
-                                <li class="body_inner"><a class="link" href="/top">HOME</a></li>
-                                <li class="body_inner"><a class="link" href="/profile">プロフィール編集</a></li>
-                                <li class="body_inner"><a class="link" href="{{ route('logout') }}">ログアウト</a></li>
-                            @endif
-                        </ul>
+            </div>
+        </header>
+        <div id="row">
+            <div id="container">
+                @yield('content')
+            </div>
+            <div id="side-bar" class="side-bar">
+                <div id="confirm">
+                    @auth
+                        <p>{{ Auth::user()->name }}さんの</p>
+                        {{-- ☆ここにログインユーザー名を表示させる構文を書く☆ --}}
+                    @endauth
+                    <div>
+                        <p>フォロー数</p>
+                        <p>〇〇名</p>
                     </div>
-                </nav>
-                {{-- //アコーディオンメニュー部分 --}}
-                <div class="icon_wrapper">
-                    <img class="header icon" src="{{ asset('images/icon1.png') }}" alt="icon1">
+                    <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
+                    <div>
+                        <p>フォロワー数</p>
+                        <p>〇〇名</p>
+                    </div>
+                    <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
                 </div>
+                <a href="/search" class="btn btn-primary">ユーザー検索</a>
             </div>
         </div>
-    </header>
-    <div id="row">
-        <div id="container">
-            @yield('content')
-        </div>
-        <div id="side-bar" class="side-bar">
-            <div id="confirm">
-                {{-- ↑名前表示一旦削除 --}}
-                <div>
-                    <p>フォロー数</p>
-                    <p>〇〇名</p>
-                </div>
-                <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
-                <div>
-                    <p>フォロワー数</p>
-                    <p>〇〇名</p>
-                </div>
-                <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
-            </div>
-            <a href="/search" class="btn btn-primary">ユーザー検索</a>
-        </div>
-    </div>
-    <footer>
-    </footer>
-    <script src="{{ asset('/js/accordion.js') }}"></script>
-</body>
+        <footer>
+        </footer>
+        <script src="{{ asset('/js/accordion.js') }}"></script>
+    </body>
 
 </html>
