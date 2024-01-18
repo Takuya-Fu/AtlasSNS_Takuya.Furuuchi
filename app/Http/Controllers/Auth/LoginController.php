@@ -44,6 +44,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     // 0118MVCでユーザー情報受け渡してから$request使えなくなった？
+    // https://qiita.com/crosawassant/items/d8b434f0bc98455165b4#%E3%81%BE%E3%81%A8%E3%82%81%E3%81%AE%E3%82%BD%E3%83%BC%E3%82%B9
     {
         if ($request->isMethod('post')) {
             // もしもpost送信だった場合、
