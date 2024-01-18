@@ -24,6 +24,7 @@
     <p>ここから下は検索結果を表示する</p>
     {{-- 自分以外のユーザーのアイコンを表示→foreachタグで表示する --}}
     @foreach ($users as $user)
+    {{-- compact関数のusersを$usersに代入されている --}}
         <div class="user_list">
             <ul>
                 <li>{{ $user->images }}</li>

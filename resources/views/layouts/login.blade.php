@@ -25,8 +25,7 @@
     <!--OGPタグ/twitterカード-->
 </head>
 
-<body>
-
+{{-- @section('content') --}}
     <body>
         <header>
             <div id = "head" class= "header_wrapper">
@@ -36,7 +35,8 @@
                     <div class="header_right">
                         <div id="login_name" class="login_name">
                             @auth
-                                <p>{{ Auth::user()->name }}さん</p>
+                                {{-- <p>{{ Auth::user()->name }}さん</p> --}}
+                                <p>{{ Auth::$user()->name }}さん</p>
                                 {{-- ☆ここにログインユーザー名を表示させる構文を書く☆ --}}
                             @endauth
                         </div>
@@ -60,33 +60,35 @@
                 </div>
             </div>
         </header>
-        <div id="row">
-            <div id="container">
-                @yield('content')
-            </div>
-            <div id="side-bar" class="side-bar">
-                <div id="confirm">
-                    @auth
-                        <p>{{ Auth::user()->name }}さんの</p>
-                        {{-- ☆ここにログインユーザー名を表示させる構文を書く☆ --}}
-                    @endauth
-                    <div>
-                        <p>フォロー数</p>
-                        <p>〇〇名</p>
-                    </div>
-                    <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
-                    <div>
-                        <p>フォロワー数</p>
-                        <p>〇〇名</p>
-                    </div>
-                    <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
-                </div>
-                <a href="/search" class="btn btn-primary">ユーザー検索</a>
-            </div>
+    {{-- @endsection --}}
+    <div id="row">
+        <div id="container">
+            @yield('content')
         </div>
-        <footer>
-        </footer>
-        <script src="{{ asset('/js/accordion.js') }}"></script>
-    </body>
+        <div id="side-bar" class="side-bar">
+            <div id="confirm">
+                @auth
+                    {{-- <p>{{ Auth::user()->name }}さんの</p> --}}
+                    <p>{{ Auth::$user()->name }}さんの</p>
+                    {{-- ☆ここにログインユーザー名を表示させる構文を書く☆ --}}
+                @endauth
+                <div>
+                    <p>フォロー数</p>
+                    <p>〇〇名</p>
+                </div>
+                <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
+                <div>
+                    <p>フォロワー数</p>
+                    <p>〇〇名</p>
+                </div>
+                <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
+            </div>
+            <a href="/search" class="btn btn-primary">ユーザー検索</a>
+        </div>
+    </div>
+    <footer>
+    </footer>
+    <script src="{{ asset('/js/accordion.js') }}"></script>
+</body>
 
 </html>

@@ -7,7 +7,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 /*↑Authenticatableは認証機能のこと*/
 // ↓0106追加
 use Illuminate\Database\Eloquent\Model;
-
 // class User extends Authenticatable
 // ↓0108追加
 class User extends Model

@@ -12,8 +12,8 @@ class UsersController extends Controller
     {
         $users = User::all();
         return view('users.search', compact('users'));
-        // compact関数は変数名を記載（カラム名はNG）
-        // compact('users')→usersは変数$usersの事を指す。
+        // compact関数は変数名を記載（カラム名はNG）。
+        // compact('users')→引数は$usersの事を指す。
     }
 
     // プロフィール画面を表示

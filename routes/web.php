@@ -2,8 +2,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 
+/*テスト用*/
 Route::resource('user','UsersController',['only'=>['edit','update']]);
-// 変数userの引数は'UsersControllerのonly内の'edit','update'をルーティング？
+// ↑Route:get,post,delete等 +UsersController/〇〇等が全て一行で済む。 https://qiita.com/nanami173/items/6458bd0d1de6fe544ab2
+// この場合はuser/editまたはuser/updateのみルーティング指定している。
+// editとは編集という意味。
+
+
 
 Route::get('/search','UsersController@index');
 Route::post('/search','UsersController@index');
@@ -17,9 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 // ろぐいんぺーじ：ログインページへ移行（ログアウトor未ログイン状態）
-// Route::get('/login', 'Auth\LoginController@login');
+Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
-// ↑Authフォルダの中のLoginControllerにあるloginの処理を行うという意味
+// 0118ログイン時にエラーが出るので、LoginControllerに原因が無いか確認する。
 
 // ゆーざーとうろくまえ：ユーザー登録ページへ移行
 Route::get('/register', 'Auth\RegisterController@register');

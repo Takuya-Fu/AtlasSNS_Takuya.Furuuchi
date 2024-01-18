@@ -8,7 +8,8 @@
         {{-- 投稿セクション --}}
         <div class="section_post">
             <img src="{{ asset('images/icon1.png') }}" alt="icon1">
-            <input class="post" type="text" placeholder="投稿内容を入力して下さい" size="100%">
+            <input class="post" type="comment" placeholder="投稿内容を入力して下さい" size="100%">
+            {{-- <textarea name="comment"  cols="100%" rows="5%"> --}}
             <img class="send_button" src="{{ asset('images/post.png') }}" alt="送信ボタン">
         </div>
     </div>

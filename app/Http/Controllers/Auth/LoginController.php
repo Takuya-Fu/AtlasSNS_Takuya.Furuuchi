@@ -38,12 +38,12 @@ class LoginController extends Controller
      * @return void
      */
     public function __construct()
-    // コンストラクタとは？→クラスから事例が発生する時（インスタンスを生成）に自動的に呼び出すメソッド。
     {
         $this->middleware('guest')->except('logout');
     }
 
     public function login(Request $request)
+    // 0118MVCでユーザー情報受け渡してから$request使えなくなった？
     {
         if ($request->isMethod('post')) {
             // もしもpost送信だった場合、
@@ -51,9 +51,10 @@ class LoginController extends Controller
             if (Auth::attempt($data)) {
                 return redirect('/top');
             }
+            // ↑0118エラー箇所
             // ログインが成功したら、トップページへ
         }
-        return view("login");
+        return view('login');
     }
     public function logout()
     {

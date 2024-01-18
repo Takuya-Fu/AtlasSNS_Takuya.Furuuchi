@@ -14,12 +14,12 @@
             @else
                 <img class="rounded-circle" src="{{ Storage::url($user->profile_image) }}" alt="プロフィール画像" width="100"
                     height="100">
-                    {{-- そうでない場合は画像を呼び出す --}}
+                {{-- そうでない場合は画像を呼び出す --}}
             @endif
             <input id="profile-image" name="profile_image" type="file"
                 class="form-control @error('profile-image') is-invalid @enderror" style="display:none;" value=""
                 accept="image/png, image/jpeg">
-                {{-- type="file"→画像なので、file形式を指定。accept="image/png, image/jpeg"→選択できるファイル形式を制限できる。今回は画像ファイルのみ。 --}}
+            {{-- type="file"→画像なので、file形式を指定。accept="image/png, image/jpeg"→選択できるファイル形式を制限できる。今回は画像ファイルのみ。 --}}
         </label>
         @error('profile-image')
             <span class="invalid-feedback" role="alert">
