@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 // ろぐいんぺーじ：ログインページへ移行（ログアウトor未ログイン状態）
-Route::get('/login', 'Auth\LoginController@login');
+// Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 // 0118ログイン時にエラーが出るので、LoginControllerに原因が無いか確認する。
 
