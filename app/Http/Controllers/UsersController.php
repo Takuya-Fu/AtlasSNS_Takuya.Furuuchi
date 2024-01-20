@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
+// Appという名前空間（階層）にあるUserモデルを使うという意味。
 use Illuminate\Http\Request;
-// use App\Models\User;
+
 
 class UsersController extends Controller
 {
@@ -46,6 +47,6 @@ class UsersController extends Controller
         // $updateUserのデータを受け取り、データベースへ保存
         $loginUser->fill($updateUser)->save();
 
-        return redirect()->route('user.show',Auth::user());
+        return redirect()->route('user.show', Auth::user());
     }
 }
