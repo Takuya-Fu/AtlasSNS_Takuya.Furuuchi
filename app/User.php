@@ -1,16 +1,9 @@
 <?php
-// namespace App\Models\User;
 namespace App;
-
 // use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-/*↑Authenticatableは認証機能のこと*/
-// ↓0106追加
-use Illuminate\Database\Eloquent\Model;
-// class User extends Authenticatable
-// ↓0108追加
-class User extends Model
-// ↑useのどちらを使うか決める（Authenticatable or Model）
+/*↑Authenticatableは認証可能機能のこと*/
+class User extends Authenticatable
 {
     /**
      * The attributes that are mass assignable.
