@@ -72,14 +72,15 @@
 <body>
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
-        {{-- ログインしている場合 --}}
+            {{-- ログイン（ユーザー認証済み）の場合 --}}
             <div class="top-right links">
                 @auth
                     <a href="{{ url('/home') }}">Home</a>
-                    {{--  --}}
+                    {{-- ログイン時（ユーザー認証済み）に表示する --}}
                 @else
                     <a href="{{ route('login') }}">Login</a>
                     <a href="{{ route('register') }}">Register</a>
+                    {{-- ログインしていない（ユーザー未認証）に表示する --}}
                 @endauth
             </div>
         @endif

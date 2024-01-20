@@ -35,8 +35,8 @@
                     <div class="header_right">
                         <div id="login_name" class="login_name">
                             @auth
-                                {{-- <p>{{ Auth::user()->name }}さん</p> --}}
-                                <p>{{ Auth::$user()->name }}さん</p>
+                                <p>{{ Auth::user()->name }}さん</p>
+                                {{-- <p>{{ Auth::$user()->name }}さん</p> --}}
                                 {{-- ☆ここにログインユーザー名を表示させる構文を書く☆ --}}
                             @endauth
                         </div>
@@ -68,8 +68,8 @@
         <div id="side-bar" class="side-bar">
             <div id="confirm">
                 @auth
-                    {{-- <p>{{ Auth::user()->name }}さんの</p> --}}
-                    <p>{{ Auth::$user()->name }}さんの</p>
+                    <p>{{ Auth::user()->name }}さんの</p>
+                    {{-- <p>{{ Auth::$user()->name }}さんの</p> --}}
                     {{-- ☆ここにログインユーザー名を表示させる構文を書く☆ --}}
                 @endauth
                 <div>
