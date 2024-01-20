@@ -79,7 +79,9 @@
                     {{-- ログイン時（ユーザー認証済み）に表示する --}}
                 @else
                     <a href="{{ route('login') }}">Login</a>
+                    {{-- authフォルダ内のlogin.blade.phpにアクセスする --}}
                     <a href="{{ route('register') }}">Register</a>
+                    {{-- authフォルダ内のregister.blade.phpにアクセスする --}}
                     {{-- ログインしていない（ユーザー未認証）に表示する --}}
                 @endauth
             </div>

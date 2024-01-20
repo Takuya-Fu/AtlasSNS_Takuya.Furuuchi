@@ -40,6 +40,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        // guest状態なら以下のlogoutメソッドを実施する。
     }
 
     public function login(Request $request)
