@@ -26,40 +26,40 @@
 </head>
 
 {{-- @section('content') --}}
-    <body>
-        <header>
-            <div id = "head" class= "header_wrapper">
-                <h1><a href="/top"><img class="header_logo" src="{{ asset('images/atlas.png') }}" alt=""></a>
-                </h1>
-                <div id="head_inner" class="header_inner">
-                    <div class="header_right">
-                        <div id="login_name" class="login_name">
-                            @auth
-                                <p>{{ Auth::user()->name }}さん</p>
-                                {{-- <p>{{ Auth::$user()->name }}さん</p> --}}
-                                {{-- ☆ここにログインユーザー名を表示させる構文を書く☆ --}}
-                            @endauth
-                        </div>
-                    </div>
-                    {{-- アコーディオンメニュー部分→head_innerで100%だと同じ広さになるかも --}}
-                    <nav class="ac-item">
-                        <div class="ac__button">
-                            <ul class="ac__body hide">
-                                @if (Auth::check())
-                                    <li class="body_inner"><a class="link" href="/top">HOME</a></li>
-                                    <li class="body_inner"><a class="link" href="/profile">プロフィール編集</a></li>
-                                    <li class="body_inner"><a class="link" href="{{ route('logout') }}">ログアウト</a></li>
-                                @endif
-                            </ul>
-                        </div>
-                    </nav>
-                    {{-- //アコーディオンメニュー部分 --}}
-                    <div class="icon_wrapper">
-                        <img class="header icon" src="{{ asset('images/icon1.png') }}" alt="icon1">
+
+<body>
+    <header>
+        <div id = "head" class= "header_wrapper">
+            <h1><a href="/top"><img class="header_logo" src="{{ asset('images/atlas.png') }}" alt=""></a>
+            </h1>
+            <div id="head_inner" class="header_inner">
+                <div class="header_right">
+                    <div id="login_name" class="login_name">
+                        @auth
+                            <p>{{ Auth::user()->username }}さん</p>
+                            {{-- 認証済みのユーザー情報からusernameの値を引用する --}}
+                        @endauth
                     </div>
                 </div>
+                {{-- アコーディオンメニュー部分→head_innerで100%だと同じ広さになるかも --}}
+                <nav class="ac-item">
+                    <div class="ac__button">
+                        <ul class="ac__body hide">
+                            @if (Auth::check())
+                                <li class="body_inner"><a class="link" href="/top">HOME</a></li>
+                                <li class="body_inner"><a class="link" href="/profile">プロフィール編集</a></li>
+                                <li class="body_inner"><a class="link" href="{{ route('logout') }}">ログアウト</a></li>
+                            @endif
+                        </ul>
+                    </div>
+                </nav>
+                {{-- //アコーディオンメニュー部分 --}}
+                <div class="icon_wrapper">
+                    <img class="header icon" src="{{ asset('images/icon1.png') }}" alt="icon1">
+                </div>
             </div>
-        </header>
+        </div>
+    </header>
     {{-- @endsection --}}
     <div id="row">
         <div id="container">
@@ -68,9 +68,8 @@
         <div id="side-bar" class="side-bar">
             <div id="confirm">
                 @auth
-                    <p>{{ Auth::user()->name }}さんの</p>
-                    {{-- <p>{{ Auth::$user()->name }}さんの</p> --}}
-                    {{-- ☆ここにログインユーザー名を表示させる構文を書く☆ --}}
+                    <p>{{ Auth::user()->username }}さんの</p>
+                    {{-- 認証済みのユーザー情報からusernameの値を引用する --}}
                 @endauth
                 <div>
                     <p>フォロー数</p>
@@ -87,6 +86,8 @@
         </div>
     </div>
     <footer>
+        {{-- ＜？ php dd(Auth::user()); ？＞ --}}
+        {{-- dd関数を使用して変数内の情報を確認 --}}
     </footer>
     <script src="{{ asset('/js/accordion.js') }}"></script>
 </body>

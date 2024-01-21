@@ -14,6 +14,7 @@ class Logoutcontroller extends Controller
         // ここは仮作成中→ログアウト方法が分かったら書き換えること
         Auth::logout();
         // return view('layouts.logout');
-        return redirect('/logout');
+        return redirect('/login');
+        // login画面に戻る。
     }
 }
