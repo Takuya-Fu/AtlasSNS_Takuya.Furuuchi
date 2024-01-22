@@ -5,6 +5,7 @@ namespace App;
 // use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 /*↑Authenticatableは認証可能機能のこと*/
+
 class User extends Authenticatable
 {
     /**
@@ -28,28 +29,30 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-// 0121以下、フォロー・フォロワーモデルを追加
-// 【フォロー機能】
-public function follow($user_id){
-    return $this->follows()->attach($user_id);
-}
-// 【フォロー解除】
-public function unfollow($user_id)
-{
-    return $this->follows()->detach($user_id);
-}
-// 【フォローする】
-public function isFollowing($user_id)
-{
-    return (boolean) $this->follows()->where('followed_id',$user_id)->exists();
-    // boolean→変数の型 exists→存在する。
-}
 
-// 【フォローされる】
-public function isFollowed($user_id){
-    return (boolean) $this->followers()->where('following_id',$user_id)->exists();
-}
+    // 0121以下、フォロー・フォロワーモデルを追加
+    // 【フォロー機能】
+    public function follow($user_id)
+    {
+        return $this->follows()->attach($user_id);
+    }
+    // 【フォロー解除】
+    public function unfollow($user_id)
+    {
+        return $this->follows()->detach($user_id);
+    }
+    // 【フォローする】
+    public function isFollowing($user_id)
+    {
+        return (boolean) $this->follows()->where('followed_id', $user_id)->exists();
+        // boolean→変数の型 exists→存在する。
+    }
 
+    // 【フォローされる】
+    public function isFollowed($user_id)
+    {
+        return (boolean) $this->followers()->where('following_id', $user_id)->exists();
+    }
 }
 
 /**

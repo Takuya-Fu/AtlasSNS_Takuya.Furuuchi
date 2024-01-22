@@ -1,12 +1,15 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
-
 /*テスト用*/
 Route::resource('user','UsersController',['only'=>['edit','update']]);
 // ↑Route:get,post,delete等 +UsersController/〇〇等が全て一行で済む。 https://qiita.com/nanami173/items/6458bd0d1de6fe544ab2
-// この場合はuser/editまたはuser/updateのみルーティング指定している。
-// editとは編集という意味。
+/* この場合はuser/editまたはuser/updateのみルーティング指定している。editとは編集という意味。 */ 
+
+/*　フォロー・フォロワー用　*/ 
+Route::group(['middleware'=>'auth'],function(){
+Route::get('/show','FollowsController@show');
+});
 
 Route::get('/search','UsersController@index');
 Route::post('/search','UsersController@index');

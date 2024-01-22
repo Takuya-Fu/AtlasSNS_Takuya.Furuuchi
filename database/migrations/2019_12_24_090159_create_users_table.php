@@ -20,11 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('mail', 255);
             $table->string('password', 255);
             $table->string('bio', 400)->nullable();
+            $table->string('images',255)->default('dawn.png')->nullable();
+            $table->timestamps();
             // $table->string('images', 255)->default('icon1.png');
-            $table->string('profile_image', 255)->nullable()->comment('プロフィール画像'); //0117追加
+            // $table->string('profile_image', 255)->nullable()->comment('プロフィール画像'); //0117追加
             // ↑画像の部分のパスを変更する
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->default(DB::raw('current_timestamp on update current_timestamp'));
+            // $table->timestamp('created_at')->useCurrent();
+            // $table->timestamp('updated_at')->default(DB::raw('current_timestamp on update current_timestamp'));
         });
     }
 
