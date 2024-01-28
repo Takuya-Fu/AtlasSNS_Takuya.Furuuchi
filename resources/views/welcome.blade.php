@@ -98,7 +98,7 @@
                 <a href="https://laravel-news.com">News</a>
                 <a href="https://forge.laravel.com">Forge</a>
                 <a href="https://github.com/laravel/laravel">GitHub</a>
-                {{-- 以下は自分オリジナル --}}
+                {{-- 以下は自分オリジナル→ただの便利機能なのでログイン機能が完成したら消す --}}
                 <a href="/top">TOP</a>
             </div>
             {{-- bootstrapテスト表示用 --}}

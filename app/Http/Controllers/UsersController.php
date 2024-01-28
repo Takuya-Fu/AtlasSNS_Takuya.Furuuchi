@@ -12,9 +12,9 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
+        // Userモデルの情報を全て出力する
         return view('users.search', compact('users'));
-        // compact関数は変数名を記載（カラム名はNG）。
-        // compact('users')→引数は$usersの事を指す。
+        /* compact関数は変数名を記載（カラム名はNG）。compact('users')→引数は$usersの事を指す。*/ 
     }
 
     // プロフィール画面を表示
@@ -23,12 +23,8 @@ class UsersController extends Controller
         return view('users.profile');
     }
 
-    // ユーザー検索部分を表示→この後ユーザー情報をモデルで取得したい
-    public function search()
-    {
-        $users = User::paginate(5);
-        // return view('users.search')->with(['username' => $users]);
-    }
+
+
 
     /* 画像取得用(https://qiita.com/kkkanao7/items/680527275a38067f7015) */
     public function update(Request $request, $id)

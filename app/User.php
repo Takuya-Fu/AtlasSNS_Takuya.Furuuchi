@@ -31,7 +31,7 @@ class User extends Authenticatable
     ];
 
     // 0121以下、フォロー・フォロワーモデルを追加
-    // 【フォロー機能】
+    // 【フォロー機能→フォロー機能をつける】
     public function follow($user_id)
     {
         return $this->follows()->attach($user_id);
@@ -44,14 +44,15 @@ class User extends Authenticatable
     // 【フォローする】
     public function isFollowing($user_id)
     {
-        return (boolean) $this->follows()->where('followed_id', $user_id)->exists();
+        return (bool) $this->follows()->where('followed_id', $user_id)->exists();
         // boolean→変数の型 exists→存在する。
+        // whereだと一つしか値が出ない
     }
 
     // 【フォローされる】
     public function isFollowed($user_id)
     {
-        return (boolean) $this->followers()->where('following_id', $user_id)->exists();
+        return (bool) $this->followers()->where('following_id', $user_id)->exists();
     }
 }
 
