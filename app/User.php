@@ -30,32 +30,22 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // 0121以下、フォロー・フォロワーモデルを追加
-    // 【フォロー機能→フォロー機能をつける】
-    public function follow($user_id)
-    {
-        return $this->follows()->attach($user_id);
-    }
-    // 【フォロー解除】
-    public function unfollow($user_id)
-    {
-        return $this->follows()->detach($user_id);
-    }
+    /* 0203以下、フォロー・フォロワーモデルの＜リレーション＞を追加
+    https://chat.openai.com/share/ca289f12-cf4b-4b99-b5b1-1257a5350b58 */
+    /*　hasone 　*/ 
     // 【フォローする】
-    public function isFollowing($user_id)
+    public function following()
     {
-        return (bool) $this->follows()->where('followed_id', $user_id)->exists();
-        // boolean→変数の型 exists→存在する。
-        // whereだと一つしか値が出ない
+        return $this->belongsToMany(User::class, 'id', 'username', 'following_id');
+        // usersモデルから「id・username」、Followモデルから「following_id」と連携する。
     }
-
     // 【フォローされる】
-    public function isFollowed($user_id)
+    public function followers()
     {
-        return (bool) $this->followers()->where('following_id', $user_id)->exists();
+        return $this->belongsToMany(User::class, 'id', 'username', 'follower_id');
+        // usersモデルから「id・username」、Followモデルから「follower_id」と連携する。
     }
 }
-
 /**
  * Create a new user instance after a valid registration.
  *

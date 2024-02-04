@@ -23,9 +23,6 @@ class UsersController extends Controller
         return view('users.profile');
     }
 
-
-
-
     /* 画像取得用(https://qiita.com/kkkanao7/items/680527275a38067f7015) */
     public function update(Request $request, $id)
     {

@@ -13,6 +13,7 @@ Route::get('/show','FollowsController@show');
 
 Route::get('/search','UsersController@index');
 Route::post('/search','UsersController@index');
+// ユーザー検索用のボタンを押すとUsersControllerのindexを実行。
 
 Route::get('/', function () {
   return view('welcome');

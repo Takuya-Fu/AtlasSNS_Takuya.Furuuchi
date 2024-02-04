@@ -183,3 +183,8 @@ header {
     height: 4%;
     margin-top: 20px;
 }
+
+/* search.bladeのフォローボタン */
+.userSearchList,.userSearchButton{
+    display: flex;/*ボタンを横並びにする*/
+}

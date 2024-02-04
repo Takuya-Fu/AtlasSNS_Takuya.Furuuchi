@@ -1,5 +1,7 @@
 {{-- ユーザー検索部分 --}}
 @extends('posts.index')
+{{-- @extends('layouts.login') --}}
+{{-- @extends('layouts.app') --}}
 
 @section('content')
     {{-- 1.最初にFormタグを作る・2.@csrfのセキュリティ対策 --}}
@@ -16,27 +18,28 @@
     {{-- 参照元URL　https://qiita.com/mokomokotime_/items/50e137d7609d37ea6245 --}}
     @foreach ($users as $user)
         {{-- UsersControllerのcompact('users')から送信されてきた情報を受け取る --}}
-        @if ($user->id !== Auth::user()->id)
-            {{-- ユーザーIDがログイン中のIDと一致しなかったら --}}
-            <div class="userSearchList">
-                <p>{{ $user->username }}</p>
-                {{-- ユーザー情報から名前を抽出する --}}
-            </div>
-
+        {{-- @if ($user->id !== Auth::user()->id) --}}
+        {{-- ユーザーIDがログイン中のIDと一致しなかったら --}}
+        <div class="userSearchList">
+            <p>{{ $user->username }}</p>
+            {{-- ユーザー情報から名前を抽出する --}}
             <div class="userSearchButton">
-                @if (auth()->user()->isFollowing($user->id))
-                    <form action="/users/{{ $user->id }}/unfollow" method="post">
-                        @csrf
-                        <input type="submit" name="button" class="followButton" value="フォロー解除">
-                        {{-- フォロー解除ボタンを表示する --}}
-                    </form>
-                @else
-                    <form action="/users/{{ $user->id }}/follow" method="Ppost">
-                        @csrf
-                        <input type="submit" name="button" class="followButton" value="フォローする">
-                        {{-- フォローボタンを表示する --}}
-                    </form>
-                @endif
+                {{-- @if (auth()->user()->isFollowing($user->id)) --}}
+                <form action="/users/{{ $user->id }}/unfollow" method="post">
+                    @csrf
+                    <input type="submit" name="button" class="followButton btn-danger" value="フォロー解除">
+                    {{-- フォロー解除ボタンを表示する --}}
+                </form>
+                {{-- @else --}}
+                <form action="/users/{{ $user->id }}/follow" method="post">
+                    @csrf
+                    <input type="submit" name="button" class="followButton btn-primary" value="フォローする">
+                    {{-- フォローボタンを表示する --}}
+                </form>
+                {{-- @endif --}}
             </div>
-        @endif
+        </div>
+
+        {{-- @endif --}}
     @endforeach
+@endsection
