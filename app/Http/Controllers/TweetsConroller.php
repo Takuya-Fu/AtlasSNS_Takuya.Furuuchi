@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class TweetsConroller extends Controller
+/*ソース先URL　https://qiita.com/namizatork/items/0c81b0a94a1084cda6de*/ 
 {
     // 一覧表示
     public function index(){

@@ -1,8 +1,6 @@
 <?php
-// 【Userモデル】
 namespace App;
 // ↑Appフォルダ内に存在する。
-// use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 /*↑Authenticatableは認証可能機能のこと*/
 
@@ -30,20 +28,40 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /* 0203以下、フォロー・フォロワーモデルの＜リレーション＞を追加
-    https://chat.openai.com/share/ca289f12-cf4b-4b99-b5b1-1257a5350b58 */
-    /*　hasone 　*/ 
-    // 【フォローする】
-    public function following()
+
+    /*参照先：https://qiita.com/namizatork/items/0c81b0a94a1084cda6de*/
+    // フォローする（つながる）
+    public function follow(Int $user_id)
     {
-        return $this->belongsToMany(User::class, 'id', 'username', 'following_id');
-        // usersモデルから「id・username」、Followモデルから「following_id」と連携する。
+        return $this->follows()->attach($user_id);
+        /*　↑$user_idを紐づける　*/
     }
-    // 【フォローされる】
-    public function followers()
+
+    // フォロー解除する（つながりを断つ）
+    public function unfollow(Int $user_id)
     {
-        return $this->belongsToMany(User::class, 'id', 'username', 'follower_id');
-        // usersモデルから「id・username」、Followモデルから「follower_id」と連携する。
+        return $this->follows()->detach($user_id);
+        /*　↑$user_idを解除する　*/
+    }
+
+    // フォローしているか（自分→相手をフォロー）
+    public function isFollowing(Int $user_id)
+    {
+        return (bool) $this->follows()->where('followed_id', $user_id)->first(['id']);
+        /*　bool→true or false（真偽）が入る
+        　　ユーザー（自分）が他のユーザーがフォローしているかを判定。
+            followed_idが$user_idのレコードを取得。
+        　*/
+    }
+
+    // フォローされているか（相手→自分をフォロー）
+    public function isFollowed(Int $user_id)
+    {
+        return (bool) $this->followers()->where('following_id', $user_id)->first(['id']);
+        /*
+            他のユーザーが自分をフォローしているかを判定。
+            following_idが$user_idのレコードを取得。
+        */
     }
 }
 /**

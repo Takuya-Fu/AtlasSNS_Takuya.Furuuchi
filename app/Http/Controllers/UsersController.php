@@ -5,16 +5,28 @@ namespace App\Http\Controllers;
 use App\User;
 // Appという名前空間（階層）にあるUserモデルを使うという意味。
 use Illuminate\Http\Request;
-
+use App\Models\Tweet;
+use App\Models\Follower;
 
 class UsersController extends Controller
 {
-    public function index()
-    {
-        $users = User::all();
+    // public function index()
+    // {
+    //     $users = User::all();
         // Userモデルの情報を全て出力する
-        return view('users.search', compact('users'));
+        // return view('users.search', compact('users'));
         /* compact関数は変数名を記載（カラム名はNG）。compact('users')→引数は$usersの事を指す。*/ 
+    // }
+    /* 0217　indexメソッドの内容を変更 　メソッドインジェクション→LaravelにはDI（依存性の注入）というのが内蔵されており、
+    メソッドの引数に院ジェクト（注入）したいオブジェクトを記載することでインスタンスが使用可能
+    ソースURL：https://qiita.com/namizatork/items/0c81b0a94a1084cda6de*/ 
+    public function index(User $user)
+    {
+        $all_users = $user->getAllUsers(auth()->user()->id);
+        // getAllUsers→全ての情報を取得する
+        return view('users.index',[
+            'all_users' => $all_users
+        ]);
     }
 
     // プロフィール画面を表示
@@ -41,5 +53,30 @@ class UsersController extends Controller
         $loginUser->fill($updateUser)->save();
 
         return redirect()->route('user.show', Auth::user());
+    }
+
+    public function follow(User $user)
+    {
+        $follower = auth()->user();
+        // フォローしているか
+        $is_following = $follower->isFollowing($user->id);
+        if(!$is_following) {
+            // フォローしていなければフォローする
+            $follower->follow($user->id);
+            return back();
+        }
+    }
+
+    // フォロー解除
+    public function unfollow(User $user)
+    {
+        $follower = auth()->user();
+        // フォローしているか
+        $is_following = $follower->isFollowing($user->id);
+        if($is_following) {
+            // フォローしていればフォローを解除する
+            $follower->unfollow($user->id);
+            return back();
+        }
     }
 }
