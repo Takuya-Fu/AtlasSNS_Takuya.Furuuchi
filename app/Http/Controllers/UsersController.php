@@ -13,19 +13,23 @@ class UsersController extends Controller
     // public function index()
     // {
     //     $users = User::all();
-        // Userモデルの情報を全て出力する
-        // return view('users.search', compact('users'));
-        /* compact関数は変数名を記載（カラム名はNG）。compact('users')→引数は$usersの事を指す。*/ 
+    // Userモデルの情報を全て出力する
+    // return view('users.search', compact('users'));
+    /* compact関数は変数名を記載（カラム名はNG）。compact('users')→引数は$usersの事を指す。*/
     // }
     /* 0217　indexメソッドの内容を変更 　メソッドインジェクション→LaravelにはDI（依存性の注入）というのが内蔵されており、
     メソッドの引数に院ジェクト（注入）したいオブジェクトを記載することでインスタンスが使用可能
-    ソースURL：https://qiita.com/namizatork/items/0c81b0a94a1084cda6de*/ 
+    ソースURL：https://qiita.com/namizatork/items/0c81b0a94a1084cda6de*/
+
     public function index(User $user)
     {
         $all_users = $user->getAllUsers(auth()->user()->id);
-        // getAllUsers→全ての情報を取得する
-        return view('users.index',[
+        /* 特定のユーザーが他のすべてのユーザーを取得するという意味。
+        　 auth()->user()->idは現在のログインしているユーザーIDを取得。
+        */
+        return view('users.search', [
             'all_users' => $all_users
+            // どこをどのようにして表示したいかを考える。プロフィールを表示するならどのように表示したいかを思い浮かべる。
         ]);
     }
 
@@ -55,12 +59,14 @@ class UsersController extends Controller
         return redirect()->route('user.show', Auth::user());
     }
 
+    // 【フォロー機能】
+    // フォローする
     public function follow(User $user)
     {
         $follower = auth()->user();
         // フォローしているか
         $is_following = $follower->isFollowing($user->id);
-        if(!$is_following) {
+        if (!$is_following) {
             // フォローしていなければフォローする
             $follower->follow($user->id);
             return back();
@@ -73,7 +79,7 @@ class UsersController extends Controller
         $follower = auth()->user();
         // フォローしているか
         $is_following = $follower->isFollowing($user->id);
-        if($is_following) {
+        if ($is_following) {
             // フォローしていればフォローを解除する
             $follower->unfollow($user->id);
             return back();

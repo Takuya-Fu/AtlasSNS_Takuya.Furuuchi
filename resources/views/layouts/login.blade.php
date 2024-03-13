@@ -49,6 +49,7 @@
                                 <li class="body_inner"><a class="link" href="/top">HOME</a></li>
                                 <li class="body_inner"><a class="link" href="/profile">プロフィール編集</a></li>
                                 <li class="body_inner"><a class="link" href="{{ route('logout') }}">ログアウト</a></li>
+                                                                            {{-- ↑logoutのURIをつけずにログアウト機能を実行する --}}
                             @endif
                         </ul>
                     </div>

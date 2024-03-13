@@ -9,6 +9,7 @@ class Follow extends Model
     protected $fillable = [
         'following_id', 'followed_id'
     ];
+    protected $table ='follow_users';
 
     public function getFollowCount($user_id){
         return $this->where('following_id',$user_id)->count();

@@ -72,10 +72,9 @@
 <body>
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
-            {{-- ログイン（ユーザー認証済み）の場合 --}}
             <div class="top-right links">
                 @auth
-                    <a href="{{ url('/home') }}">Home</a>
+                    <a href="{{ url('home') }}">Home</a>
                     {{-- ログイン時（ユーザー認証済み）に表示する --}}
                 @else
                     <a href="{{ route('login') }}">Login</a>
@@ -99,7 +98,6 @@
                 <a href="https://forge.laravel.com">Forge</a>
                 <a href="https://github.com/laravel/laravel">GitHub</a>
                 {{-- 以下は自分オリジナル→ただの便利機能なのでログイン機能が完成したら消す --}}
-                <a href="/top">TOP</a>
             </div>
             {{-- bootstrapテスト表示用 --}}
             {{-- <div class="bootstrap">

@@ -1,19 +1,13 @@
 <?php
-// ログイン時の情報はlogin.blade.phpからこちらへ飛んでくる
-// https://qiita.com/yukachin0414/items/4e9408900f675070ee8e#:~:text=%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%E3%81%A8%E3%81%AF%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%8B%E3%82%89,%E3%81%8F%E3%82%8B%E3%81%AE%E3%81%A7%E5%A4%A7%E5%A4%89%E4%BE%BF%E5%88%A9%E3%81%A7%E3%81%99%E3%80%82
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-// 継承元のloginメソッドでガードを呼び出します。
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-/* Laravel/uiのスカフォールドと認証
-https://freelance-magazine.net/2021/04/03/%E3%80%90laravel%E5%85%A5%E9%96%80%E3%80%91laravel-ui%E3%81%A7%E3%82%B9%E3%82%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%83%AB%E3%83%89%E3%81%A8%E8%AA%8D%E8%A8%BC%E3%82%92%E5%AE%9F%E7%8F%BE/
-*/ 
-
 use Illuminate\Http\Request;
 use Auth;
-use Illuminate\Support\Facades\Auth as FacadesAuth;
-// use App\User;
+// use App\Providers\RouteServiceProvider;
+
 
 class LoginController extends Controller
 {
@@ -61,11 +55,6 @@ class LoginController extends Controller
             // ↑0118エラー箇所
             // ログインが成功したら、トップページへ
         }
-        return view('login');
-    }
-    public function logout()
-    {
-        Auth::logout();
-        return redirect('/login');
+        return view('auth.login');
     }
 }

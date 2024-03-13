@@ -1,23 +1,22 @@
 <?php
 namespace App;
-// ↑Appフォルダ内に存在する。
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
 /*↑Authenticatableは認証可能機能のこと*/
 
 class User extends Authenticatable
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    use Notifiable;
+
 
     protected $fillable = [
         'username', 'mail', 'password',
     ];
+    /* $fillableはMVCモデルに対して一括代入を許可する属性（カラム）を指定する。→セキュリティ上の理由で指定したカラム以外に一括代入を防ぐため。 */ 
 
     protected $table = 'users';
-    // ↑usersテーブルからデータを管理する（やり取りする）
+    /* usersテーブルに関連付けられる。 */ 
 
     /**
      * The attributes that should be hidden for arrays.
@@ -27,41 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /* 特定の属性を非表示にする。
+    →パスワードと具体的には、ユーザーが「Remember me」オプションを選択してログインした場合、そのユーザーが次回サイトにアクセスした際に自動的にログインされるようにするために使用 */ 
 
-
-    /*参照先：https://qiita.com/namizatork/items/0c81b0a94a1084cda6de*/
-    // フォローする（つながる）
-    public function follow(Int $user_id)
-    {
-        return $this->follows()->attach($user_id);
-        /*　↑$user_idを紐づける　*/
+    public function follows(){
+        return $this->belongsToMany(User::class,'follower_user','follower_id','user_id');
     }
-
-    // フォロー解除する（つながりを断つ）
-    public function unfollow(Int $user_id)
-    {
-        return $this->follows()->detach($user_id);
-        /*　↑$user_idを解除する　*/
-    }
-
-    // フォローしているか（自分→相手をフォロー）
-    public function isFollowing(Int $user_id)
-    {
-        return (bool) $this->follows()->where('followed_id', $user_id)->first(['id']);
-        /*　bool→true or false（真偽）が入る
-        　　ユーザー（自分）が他のユーザーがフォローしているかを判定。
-            followed_idが$user_idのレコードを取得。
-        　*/
-    }
-
-    // フォローされているか（相手→自分をフォロー）
-    public function isFollowed(Int $user_id)
-    {
-        return (bool) $this->followers()->where('following_id', $user_id)->first(['id']);
-        /*
-            他のユーザーが自分をフォローしているかを判定。
-            following_idが$user_idのレコードを取得。
-        */
+    public function followers(){
+        return $this->belongsToMany(User::class,'follower_user','follower_id','user_id');
     }
 }
 /**

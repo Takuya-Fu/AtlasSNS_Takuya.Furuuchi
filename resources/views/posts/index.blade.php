@@ -1,3 +1,4 @@
+{{-- ここは投稿機能です --}}
 @extends('layouts.login')
 {{-- ↑login.blade.phpの内容を引っ張ってきている --}}
 

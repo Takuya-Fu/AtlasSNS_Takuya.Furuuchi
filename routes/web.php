@@ -1,79 +1,52 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsersController;
-/*テスト用*/
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
-Route::resource('user', 'UsersController', ['only' => ['edit', 'update']]);
-// ↑Route:get,post,delete等 +UsersController/〇〇等が全て一行で済む。 https://qiita.com/nanami173/items/6458bd0d1de6fe544ab2
-/* この場合はuser/editまたはuser/updateのみルーティング指定している。editとは編集という意味。 */
-
-/*　フォロー・フォロワー用　*/
-Route::group(['middleware' => 'auth'], function () {
-  Route::get('/show', 'FollowsController@show');
-});
-
-Route::get('/search', 'UsersController@index');
-Route::post('/search', 'UsersController@index');
-// ユーザー検索用のボタンを押すとUsersControllerのindexを実行。
-
+// LaravelのTOP画面
 Route::get('/', function () {
   return view('welcome');
 });
 
+// ログイン中にTOP画面に戻り、ログイン者の名前を表示する。
+Route::get('/home', 'HomeController@index')->name('home');
 
-// ろぐいんぺーじ：ログインページへ移行（ログアウトor未ログイン状態）
+
+// ログアウト用（ログイン状態解除）
+Route::get('logout','HomeController@logout');
+
+/*　1.ログアウト中のページ　*/ 
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
-// 0118ログイン時にエラーが出るので、LoginControllerに原因が無いか確認する。
-
 // ゆーざーとうろくまえ：ユーザー登録ページへ移行
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
-
 // ゆーざーとうろくご：ユーザー登録完了
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
-//ろぐいん：ログイン中のページ
-Route::get('/top', 'PostsController@index');
-Route::post('/top', 'PostsController@index');
+/*　2.ログイン中のページ　*/ 
+Auth::routes();
+Route::get('/top','PostsController@index');
+Route::get('/profile','UsersController@profile');
+Route::get('/search','UsersController@index');
+Route::get('/follow-list','PostsController@index');
+Route::get('/follower-list','PostsController@index');
+
+// ユーザー検索
+Route::get('/search', 'UsersController@index');
+Route::post('/search', 'UsersController@index');
+// ユーザー検索用のボタンを押すとUsersControllerのindexを実行。
 
 // まいぷろふぃーる：マイプロフィール
 Route::get('/profile', 'UsersController@profile');
 Route::post('/profile', 'UsersController@profile');
 
-// ふぉろー：フォローリスト
-Route::get('/follow-list', 'PostsController@followList');
-
-// ふぉろわー：フォロワーリスト
-Route::get('/follower-list', 'PostsController@followerList');
-
-// ろぐあうと：（仮）ログアウト機能→あくまでテスト用
-Route::get('/logout', 'Logoutcontroller@logout');
-Route::post('/logout', 'Logoutcontroller@logout');
-
-// （認証後の）フォロー設定・フォロー解除ルーティング
-// Route::middleware('auth')->group(function () {
-//   Route::post('users/{user}/follow', 'FollowController@follow')->name('users.follow');
-//   Route::post('users/{user}/unfollow', 'FollowController@unfollow')->name('users.unfollow');
-// });
-// https://qiita.com/namizatork/items/0c81b0a94a1084cda6de
-// Auth::routes();
-
-// 0217追記
-Auth::routes();
-// 【名前付きルート】ミドルウェアを介してホーム画面にhomeと名前を表示する
-Route::get('/home', 'HomeController@index')->name('home');
-// Auth::routes();
-// ログイン状態→ログインした時のみアクセス可能にする
-Route::group(['middleware' => 'auth'], function () {
-  // ユーザー関連
-  // Route::resource('users', 'UsersController');
-  Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
-  // フォロー・フォロー解除用のルーティングを追加
-  Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
-  // URLに（非表示の）ユーザーID含めて送信されたら、followメソッドを呼び出す。（フォローを行う）
-  Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
-  // URLに（非表示の）ユーザーID含めて送信されたら、unfollowメソッドを呼び出す。（フォロー解除）
-});
