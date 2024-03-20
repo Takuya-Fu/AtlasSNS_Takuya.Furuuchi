@@ -16,4 +16,8 @@
     </div>
 @endsection
 {{-- ここから下にcompact関数でUserモデルから持ってきたデータを表示 --}}
-
+{{-- 持ってきたいデータ
+    →フォローしているユーザーでPost投稿されたユーザーの「アイコン・名前・投稿内容・編集ボタン・削除ボタン」を表示する
+     その為にはpostsテーブルから「user_id・post・created_at」カラムの内容、usersテーブルから「id・username・images」が必要と判断。
+     以下のURLを参照　https://atlas-artlif.com/curriculum/7821/
+    --}}
