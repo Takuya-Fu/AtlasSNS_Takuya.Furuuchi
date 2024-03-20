@@ -62,7 +62,6 @@
     </header>
 
     {{-- 右側のサイドバー部分↓sidebarセクション開始部分 --}}
-    @section('sidebar')
         <div id="row">
             <div id="container">
                 @yield('content')
@@ -88,7 +87,6 @@
                 <a href="/search" class="btn btn-primary">ユーザー検索</a>
             </div>
         </div>
-    @endsection
     <script src="{{ asset('/js/accordion.js') }}"></script>
 </body>
 

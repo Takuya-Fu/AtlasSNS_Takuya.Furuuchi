@@ -1,6 +1,7 @@
-{{-- @extends('layouts.login') --}}
-@extends('posts.index')
+@extends('layouts.login')
+{{-- @extends('posts.index') --}}
 {{-- ヘッダー上部のAtlasロゴからユーザーアイコンまで表示される --}}
 {{-- @yield('content') --}}
-@yield('section')
+{{-- @yield('sidebar') --}}
+{{-- @yield('section') --}}
 {{-- 上下逆さになる --}}

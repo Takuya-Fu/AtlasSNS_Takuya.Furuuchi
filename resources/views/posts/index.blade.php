@@ -2,7 +2,9 @@
 @extends('layouts.login')
 {{-- login.blade.phpの内容を引っ張ってきている→これはこのままで問題ない --}}
 
-{{-- Twitterコメント投稿を行う欄 --}}
+{{-- Twitterコメント投稿を行う欄
+→0320宮崎さんに質問し「layouts.login.php」を継承して@sectionで囲むことでレイアウトが上下逆に表示されないようになることを確認済み --}}
+@section('content')
     <h2>機能を実装していきましょう。</h2>
     <div id="main" class="main_container">
         {{-- 投稿セクション --}}
@@ -12,6 +14,6 @@
             <img class="send_button" src="{{ asset('images/post.png') }}" alt="送信ボタン">
         </div>
     </div>
-
+@endsection
 {{-- ここから下にcompact関数でUserモデルから持ってきたデータを表示 --}}
 
