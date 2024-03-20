@@ -17,15 +17,15 @@ Route::get('/', function () {
 });
 
 // ログイン中にTOP画面に戻り、ログイン者の名前を表示する。
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');
 
 
 // ログアウト用（ログイン状態解除）
 Route::get('logout','HomeController@logout');
 
 /*　1.ログアウト中のページ　*/ 
-Route::get('/login', 'Auth\LoginController@login');
-Route::post('/login', 'Auth\LoginController@login');
+Route::get('login', 'Auth\LoginController@login');
+Route::post('login', 'Auth\LoginController@login');
 // ゆーざーとうろくまえ：ユーザー登録ページへ移行
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
@@ -50,3 +50,5 @@ Route::post('/search', 'UsersController@index');
 Route::get('/profile', 'UsersController@profile');
 Route::post('/profile', 'UsersController@profile');
 
+// テスト用（viewルート）
+Route::view('/test', 'layouts.app');

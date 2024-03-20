@@ -2,7 +2,7 @@
 
 @section('content')
     {!! Form::open(['url' => '/login', 'method' => 'post']) !!}
-
+    {{-- URL「/login」にアクセスし、メソッドをPOST形式で送信する --}}
     <p>AtlasSNSへようこそ</p>
     @csrf
     {{ Form::label('mail adress') }}

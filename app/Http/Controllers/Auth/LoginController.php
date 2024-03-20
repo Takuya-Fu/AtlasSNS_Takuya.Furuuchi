@@ -52,9 +52,8 @@ class LoginController extends Controller
             if (Auth::attempt($data)) {
                 return redirect('/top');
             }
-            // ↑0118エラー箇所
-            // ログインが成功したら、トップページへ
         }
         return view('auth.login');
+        // 未ログインorログインできない場合ログイン画面を表示する。
     }
 }

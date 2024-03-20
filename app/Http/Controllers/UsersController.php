@@ -1,37 +1,32 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\User;
 // Appという名前空間（階層）にあるUserモデルを使うという意味。
 use Illuminate\Http\Request;
-use App\Models\Tweet;
-use App\Models\Follower;
 
 class UsersController extends Controller
 {
-    // public function index()
-    // {
-    //     $users = User::all();
+     public function index()
+     {
+         $users = User::all();
     // Userモデルの情報を全て出力する
-    // return view('users.search', compact('users'));
+     return view('users.search', compact('users'));
     /* compact関数は変数名を記載（カラム名はNG）。compact('users')→引数は$usersの事を指す。*/
-    // }
-    /* 0217　indexメソッドの内容を変更 　メソッドインジェクション→LaravelにはDI（依存性の注入）というのが内蔵されており、
-    メソッドの引数に院ジェクト（注入）したいオブジェクトを記載することでインスタンスが使用可能
-    ソースURL：https://qiita.com/namizatork/items/0c81b0a94a1084cda6de*/
+     }
 
-    public function index(User $user)
-    {
-        $all_users = $user->getAllUsers(auth()->user()->id);
-        /* 特定のユーザーが他のすべてのユーザーを取得するという意味。
-        　 auth()->user()->idは現在のログインしているユーザーIDを取得。
-        */
-        return view('users.search', [
-            'all_users' => $all_users
-            // どこをどのようにして表示したいかを考える。プロフィールを表示するならどのように表示したいかを思い浮かべる。
-        ]);
-    }
+    // public function index(User $user)
+    // // 0317Userモデルのユーザー情報を最初のプロフィールに表示したい。→修正が必要。
+    // {
+    //     $all_users = $user->getAllUsers(auth()->user()->id);
+    //     /* Userモデルで、ログイン中ユーザー情報の、IDをを取得する。
+    //     　 auth()->user()->idは現在のログインしているユーザーIDを取得。
+    //     */
+    //     return view('users.search', [
+    //         'all_users' => $all_users
+    //         // どこをどのようにして表示したいかを考える。プロフィールを表示するならどのように表示したいかを思い浮かべる。
+    //     ]);
+    // }
 
     // プロフィール画面を表示
     public function profile()

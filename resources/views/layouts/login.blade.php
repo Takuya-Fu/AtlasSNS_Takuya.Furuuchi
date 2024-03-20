@@ -25,9 +25,8 @@
     <!--OGPタグ/twitterカード-->
 </head>
 
-{{-- @section('content') --}}
-
 <body>
+    {{-- ヘッダー部分↓header区間開始部分 --}}
     <header>
         <div id = "head" class= "header_wrapper">
             <h1><a href="/top"><img class="header_logo" src="{{ asset('images/atlas.png') }}" alt=""></a>
@@ -49,7 +48,7 @@
                                 <li class="body_inner"><a class="link" href="/top">HOME</a></li>
                                 <li class="body_inner"><a class="link" href="/profile">プロフィール編集</a></li>
                                 <li class="body_inner"><a class="link" href="{{ route('logout') }}">ログアウト</a></li>
-                                                                            {{-- ↑logoutのURIをつけずにログアウト機能を実行する --}}
+                                {{-- ↑logoutのURIをつけずにログアウト機能を実行する --}}
                             @endif
                         </ul>
                     </div>
@@ -61,35 +60,35 @@
             </div>
         </div>
     </header>
-    {{-- @endsection --}}
-    <div id="row">
-        <div id="container">
-            @yield('content')
-        </div>
-        <div id="side-bar" class="side-bar">
-            <div id="confirm">
-                @auth
-                    <p>{{ Auth::user()->username }}さんの</p>
-                    {{-- 認証済みのユーザー情報からusernameの値を引用する --}}
-                @endauth
-                <div>
-                    <p>フォロー数</p>
-                    <p>〇〇名</p>
-                </div>
-                <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
-                <div>
-                    <p>フォロワー数</p>
-                    <p>〇〇名</p>
-                </div>
-                <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
+
+    {{-- 右側のサイドバー部分↓sidebarセクション開始部分 --}}
+    @section('sidebar')
+        <div id="row">
+            <div id="container">
+                @yield('content')
             </div>
-            <a href="/search" class="btn btn-primary">ユーザー検索</a>
+            <div id="side-bar" class="side-bar">
+                <div id="confirm">
+                    @auth
+                        <p>{{ Auth::user()->username }}さんの</p>
+                        {{-- 認証済みのユーザー情報からusernameの値を引用する --}}
+                    @endauth
+                    <div>
+                        <p>フォロー数</p>
+                        <p>〇〇名</p>
+
+                    </div>
+                    <a href="/follow-list" class="btn btn-primary">フォローリスト</a>
+                    <div>
+                        <p>フォロワー数</p>
+                        <p>〇〇名</p>
+                    </div>
+                    <a href="/follower-list" class="btn btn-primary">フォロワーリスト</a>
+                </div>
+                <a href="/search" class="btn btn-primary">ユーザー検索</a>
+            </div>
         </div>
-    </div>
-    <footer>
-        {{-- ＜？ php dd(Auth::user()); ？＞ --}}
-        {{-- dd関数を使用して変数内の情報を確認 --}}
-    </footer>
+    @endsection
     <script src="{{ asset('/js/accordion.js') }}"></script>
 </body>
 
