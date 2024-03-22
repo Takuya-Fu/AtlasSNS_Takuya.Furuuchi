@@ -9,10 +9,9 @@ class UsersController extends Controller
 {
      public function index()
      {
-         $users = User::all();
-    // Userモデルの情報を全て出力する
+         $users = User::all();  // ←Userモデルの情報を全て出力する
      return view('users.search', compact('users'));
-    /* compact関数は変数名を記載（カラム名はNG）。compact('users')→引数は$usersの事を指す。*/
+    //  compact('users')は$userに値を渡すための関数。
      }
 
     // public function index(User $user)

@@ -20,4 +20,8 @@
     →フォローしているユーザーでPost投稿されたユーザーの「アイコン・名前・投稿内容・編集ボタン・削除ボタン」を表示する
      その為にはpostsテーブルから「user_id・post・created_at」カラムの内容、usersテーブルから「id・username・images」が必要と判断。
      以下のURLを参照　https://atlas-artlif.com/curriculum/7821/
+
+     【目標】
+     上記URLを見て実践する（30分）
+     それでも不明であれば講師へ質問する
     --}}
