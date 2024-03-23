@@ -21,9 +21,9 @@ Route::get('home', 'HomeController@index')->name('home');
 
 
 // ログアウト用（ログイン状態解除）
-Route::get('logout','HomeController@logout');
+Route::get('logout', 'HomeController@logout');
 
-/*　1.ログアウト中のページ　*/ 
+/*　1.ログアウト中のページ　*/
 Route::get('login', 'Auth\LoginController@login');
 Route::post('login', 'Auth\LoginController@login');
 // ゆーざーとうろくまえ：ユーザー登録ページへ移行
@@ -33,13 +33,15 @@ Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
-/*　2.ログイン中のページ　*/ 
+/*　2.ログイン中のページ　*/
 Auth::routes();
-Route::get('/top','PostsController@index');
-Route::get('/profile','UsersController@profile');
-Route::get('/search','UsersController@index');
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+// ログイン状態→ユーザー認証されている時のみアクセスが可能となる。
+Route::group(['middleware' => 'auth'], function () {
+Route::get('/top', 'PostsController@index');
+Route::get('/profile', 'UsersController@profile');
+Route::get('/search', 'UsersController@index');
+Route::get('/follow-list', 'PostsController@index');
+Route::get('/follower-list', 'PostsController@index');
 
 // ユーザー検索
 Route::get('/search', 'UsersController@index');
@@ -52,3 +54,5 @@ Route::post('/profile', 'UsersController@profile');
 
 // テスト用（viewルート）
 Route::view('/test', 'layouts.app');
+//   Route::resource('users', 'UsersController',['only'=>['index','show','edit','update']]);
+});
