@@ -6,10 +6,63 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    // リレーションシップ
-    public function user(){
-        return $this->belongsTo(\App\Users::class, 'user_id', 'id');
-        // belongsTo→所属する
-        // id→ユーザー番号　username→登録名　mail→メールアドレス　images→画像アイコン
+    use SoftDeletes;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'text'
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function getUserTimeLine(Int $user_id)
+    {
+        return $this->where('user_id', $user_id)->orderBy('created_at', 'DESC')->paginate(50);
+    }
+
+    public function getTweetCount(Int $user_id)
+    {
+        return $this->where('user_id', $user_id)->count();
+    }
+
+    public function getTimelines(Int $user_id, array $follow_ids)
+    {
+        // 自身とフォローしているユーザIDを結合する
+        $follow_ids[] = $user_id;
+        return $this->whereIn('user_id', $follow_ids)->orderBy('create_at', 'DESC')->paginate(50);
+    }
+
+    // 詳細画面
+    public function getTweet(Int $tweet_id)
+    {
+        return $this->with('user')->where('id', $tweet_id)->first();
+    }
+
+    // バリデーション処理が通った後のDB保存処理
+    public function tweetStore(Int $user_id, Array $data)
+    {
+        $this->user_id = $user_id;
+        $this->text = $data['text'];
+        $this->save();
+
+        return;
+    }
+
 }
